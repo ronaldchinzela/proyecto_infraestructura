@@ -24,7 +24,7 @@
 		$password = $_POST['password'];
 		
 		//consulta sql para verificar si el usuario existe
-		$sql = "SELECT id, password, nombre, idrol FROM usuarios WHERE usuario='$usuario'";
+		$sql = "SELECT id, password, nombres,apellidos, idrol FROM usuarios WHERE usuario='$usuario'";
 
 		//ejecutando el dato obtenido del select
 		$resultado = $conexion->query($sql);
@@ -41,7 +41,8 @@
 			if($password_bd == $pass_c){
 				
 				$_SESSION['id'] = $row['id'];
-				$_SESSION['nombre'] = $row['nombre'];
+				$_SESSION['nombres'] = $row['nombres'];
+				$_SESSION['apellidos'] = $row['apellidos'];
 				$_SESSION['idrol'] = $row['idrol'];
 				
 				header("Location: ../pagina_principal/home.php");
