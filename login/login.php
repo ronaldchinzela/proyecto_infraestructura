@@ -24,7 +24,7 @@
 		$password = $_POST['password'];
 		
 		//consulta sql para verificar si el usuario existe
-		$sql = "SELECT id, password, nombre, tipo_usuario FROM usuarios WHERE usuario='$usuario'";
+		$sql = "SELECT id, password, nombre, idrol FROM usuarios WHERE usuario='$usuario'";
 
 		//ejecutando el dato obtenido del select
 		$resultado = $conexion->query($sql);
@@ -42,7 +42,7 @@
 				
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['nombre'] = $row['nombre'];
-				$_SESSION['tipo_usuario'] = $row['tipo_usuario'];
+				$_SESSION['idrol'] = $row['idrol'];
 				
 				header("Location: ../pagina_principal/home.php");
 				

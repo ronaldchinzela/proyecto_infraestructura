@@ -12,7 +12,7 @@
 	$nombre = $_SESSION['nombre'];
 
     //creando variable para el tipo de usuario que inicia sesión
-	$tipo_usuario = $_SESSION['tipo_usuario'];
+	$idrol = $_SESSION['idrol'];
 	
 	
 ?>
@@ -60,7 +60,7 @@
                         <div class="nav">
 
                              <!-- privilegios de los usuarios -->				
-						<?php if($tipo_usuario == 1) { ?>
+						<?php if($idrol == 1) { ?>
 								
 							 <!-- menú reportes -->
 								<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -123,7 +123,7 @@
                         <?php } ?>
 
                             <!-- página del Analista--> 
-                        <?php if($tipo_usuario == 2) { ?>
+                        <?php if($idrol == 2) { ?>
                             			
 						 <!-- menú reportes -->                      
                         <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseLayou" aria-expanded="false" aria-controls="collapseLayou">
