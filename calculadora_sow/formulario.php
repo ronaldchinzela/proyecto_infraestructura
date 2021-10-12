@@ -1,4 +1,10 @@
 <?php
+    //llamando a la conexión de la bd
+    include("../conexion.php");
+    //seleccionando todos los datos de la tabla sow
+    $sow = "SELECT * FROM sow";
+?>
+<?php
 	//iniciando las sesiones
 	session_start();
 	
@@ -14,9 +20,7 @@
 
     //creando variable para el tipo de usuario que inicia sesión
 	$idrol = $_SESSION['idrol'];
-	
-	
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="es">
@@ -27,10 +31,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Sistema SGTRT</title>
-        <link href="../css/estilos.css" rel="stylesheet"/>
+        <link href="../css/estilos.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-	</head>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    </head>
 
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -41,8 +46,8 @@
             <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- Agregando la variable nombres del inicio de sesión -->  
-                    <?php echo $nombres." ".$apellidos;?>                  
+                <!-- Agregando la variable nombre del inicio de sesión -->  
+                <?php echo $nombres." ".$apellidos;?>
                     <i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Configuración</a>
@@ -53,8 +58,8 @@
 				</li>
 			</ul>
 		</nav>
-        <!-- menú lateral de navegación -->
-        <div id="layoutSidenav">
+<!-- menú lateral de navegación -->
+<div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -151,24 +156,71 @@
 				                        </nav>
 			                </div>
 
-                  <div id="layoutSidenav_content">
-                 <main>
+                            <div id="layoutSidenav_content">
+                            <main>
+                                <div class="container-fluid-formulario">
+                    
+                            <div class="row">                
+                            <br>        
+                            </div>
+
+                          <div class="card mb-5">
+                          <div class="card-header"></i><b id="b-formulario">Formulario 4walls</b></div>
+                            <div class="card-body">
+
+                            <form id="form_formulario" action="registrar.php" method="POST">
+                                <table border="2" id="table-formulario">
+                                    <tr>
+                                         <th colspan="8">Formulario 4walls</th>
+                                     </tr>
+
+                                     <tr>
+                                         <th>Código</th>
+                                         <th>Serie</th>
+                                         <th>Descripción del equipo</th>
+                                         <th>Fecha Inicio</th>
+                                         <th>Fecha de Fin</th>
+                                         <th>Costo</th>
+                                         <th>ALP</th>
+                                         <th>Estado</th>
+                                     </tr>
+                                     <tr>                                        
+                                         <th><input id="input_1" type="text"  name="codigo"></th>
+                                         <th><input id="input_2" type="text" name="serie"></th>
+                                         <th><input id="input_3" type="text" name="descripcion"></th>
+                                         <th><input id="input_4" type="date" name="fecha_inicio"></th>
+                                         <th><input id="input_5" type="date" name="fecha_fin"></th>
+                                         <th><input id="input_6" type="text" name="costo"></th>
+                                         <th><input id="input_7" type="text" name="alp"></th>
+                                         <th><input id="input_8" type="text" name="estado"></th>
+                                     </tr>                                  
+                                </table>
+                                <input id="boton-registrar-formulario" type="button" value="Registrar" onclick="location.href='#'">
+                                <input class="cancelar-formulario" type="button" value="Cancelar" onclick="location.href='#'">
+                                </div>                             
+                                </form>
+						</div>
+                        
+					</div>
                     
 				</main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Canvia</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-							</div>
 						</div>
 					</div>
 				</footer>
 			</div>
 		</div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script> src="../confirmacion.js"</script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
         <script src="../js/scripts.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 	</body>
 </html>

@@ -2239,6 +2239,191 @@ pre code {
   border: 0;
   position: relative;
 }
+/*estilos contenedor del formulario*/
+.container-fluid-formulario,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 116%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#b-formulario{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: -5px;
+  font-size: 2em;
+}
+
+/*estilos tabla formulario*/
+#form_formulario{
+
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  top: 10px;
+  position: relative;
+  left: inherit;
+  transform: inherit;
+  right: 35px;
+}
+
+#boton-registrar-formulario{
+  box-sizing: border-box;
+  top: 35px;
+  position: relative;
+  left: 620px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-formulario{
+  box-sizing: border-box;
+  top: 9px;
+  position: relative;
+  left: 472px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.contenedor-tablas{
+  position: absolute;
+  width: 100%;
+  margin: auto;
+}
+
+.card-header-formulario{
+  padding: 0.75rem 1.25rem;
+  position: relative;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 38%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#table-formulario tr th{
+  width: 5em;
+}
+
+#table-formulario tr:nth-of-type(1) > th{
+  background-color: rgb(196, 250, 145);
+  padding: 1px;
+  text-align: center;
+}
+
+#table-formulario tr:nth-of-type(2) > th{
+  text-align:center;
+  padding: 5px;
+  width: 0px;
+  background-color: rgb(245, 255, 151);
+  color: #000;
+}
+
+#table-formulario tr:nth-of-type(3) > th{
+  padding: 6px;
+  background-color: #ffff;
+  color: #000;
+}
+
+#input_1{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_2{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_3{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 200px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_4{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 130px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_5{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 130px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_6{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_7{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_8{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+
+
+
 /*estilos de login*/
 #alert{
   font-size: 18px;
