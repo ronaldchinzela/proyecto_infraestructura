@@ -165,16 +165,29 @@
                             </div>
 
                           <div class="card mb-10">
-                          <div class="card-header-gestionar-usuario"></i><b id="b-gestionar-usuario">Nuevo usuario</b></div>
+                          <div class="card-header-gestionar-usuario"></i><b id="b-nuevo-usuario">Nuevo usuario</b></div>
                             <div class="card-body">
 
-                            <!-- Tablas -->
+                            <!-- Formulario -->
                                 
-                                
-                        
+                     
+                                <form id="form-generar-usuario" action="">
+                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre"></span><br>
+                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos"></span><br>
+                                    <span id="span-correo">Correo: <input type="text" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo"></span><br>
+                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular"></span><br>
+                                    <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" placeholder="Ingrese la contraseña"></span><br>
+                                    <label for="rol" class="label-rol">Rol:</label>
+                                    <select id="cbo-rol">
+                                        <option value="0">Seleccionar</option>
+                                        <option>Administrador</option>
+                                        <option>Analista</option>
+                                    </select><br>
+                                    <input class="btn-generar-usuario" type="button" value="Generar usuario" onclick="location.href='#'">
+                                </form>
 
 
-
+                            
                                  <!--   -->                            
 							</div>         
 						</div>

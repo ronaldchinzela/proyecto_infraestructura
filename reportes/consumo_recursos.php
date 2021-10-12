@@ -90,7 +90,7 @@
                             <!-- Item de usuarios -->
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../pagina_principal/home.php">
+                                    <a class="nav-link" href="../usuarios/nuevo_usuario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Nuevo Usuario</a>
                                     <a class="nav-link" href="../usuarios/gestionar_usuario.php">

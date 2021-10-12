@@ -6133,6 +6133,7 @@ form {
   position: relative;
   margin: auto;
   font-size: 2em;
+
 }
 
 #b-registrar-sow{
@@ -6142,6 +6143,179 @@ form {
   right: -35px;
   font-size: 2em;
 }
+
+/*css página nuevo_usuario*/
+#b-nuevo-usuario{
+  color: #000;
+  transform: translate(-50%, -50%);
+  position: relative;
+  margin: auto;
+  font-size: 2em;
+  left: 15px;
+  
+}
+
+.btn-generar-usuario{
+  box-sizing: border-box;
+  top: 415px;
+  position: absolute;
+  left: 390px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+#form-generar-usuario{
+  position: relative;
+  top: 250px;
+  width: auto;
+  height: 500px;
+  box-sizing: inherit;
+  box-shadow: inherit;
+}
+
+#input-nombre-nuevo-usuario {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 65px;
+  width: 208px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  margin-left: 29px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#span-nombre{
+  position: relative;
+  font-weight: bold;
+  top: 15px;
+  left: 100px;
+}
+
+#input-apellido-nuevo-usuario {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 65px;
+  width: 208px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  margin-left: 29px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#span-apellido{
+  position: relative;
+  font-weight: bold;
+  top: 15px;
+  left: 100px;
+}
+
+#input-correo-nuevo-usuario {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 65px;
+  width: 208px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  margin-left: 29px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#span-correo{
+  position: relative;
+  font-weight: bold;
+  top: 15px;
+  left: 100px;
+}
+
+#input-celular-nuevo-usuario {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 65px;
+  width: 208px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  margin-left: 29px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#span-celular{
+  position: relative;
+  font-weight: bold;
+  top: 15px;
+  left: 100px;
+}
+
+#input-password-nuevo-usuario {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 65px;
+  width: 208px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  margin-left: 29px;
+  padding-right: 0px;
+  padding-left: 10px;
+}
+#span-password{
+  position: relative;
+  font-weight: bold;
+  top: 15px;
+  left: 100px;
+}
+
+#cbo-rol {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 198px;
+  width: 117px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+
+  padding-left: 5px;
+}
+.label-rol{
+  position: relative;
+  font-weight: bold;
+  top: 10px;
+  left: 100px;
+}
+
+
 
 .carousel-item-next:not(.carousel-item-left),
 .active.carousel-item-right {

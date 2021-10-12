@@ -2,7 +2,7 @@
     //llamando a la conexión de la bd
     include("../conexion.php");
     //seleccionando todos los datos de la tabla sow
-    $sow = "SELECT * FROM sow";
+    $usuarios = "SELECT * FROM usuarios";
 ?>
 <?php
 	//iniciando las sesiones
@@ -180,17 +180,17 @@
                                                 <th>Editar</th>                                                
 											</tr>
 										</thead>
-                                       <?php $resultado = mysqli_query($conexion, $sow);
+                                       <?php $resultado = mysqli_query($conexion, $usuarios);
                                        while($row=mysqli_fetch_assoc($resultado)){?>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $row["codigo"];?></td>
-                                                <td><?php echo 'SOW'.$row["codigo"];?></td>
-                                                <td><?php echo $row["fecha_creacion"];?></td> 
+                                                <td><?php echo $row["usuario"];?></td>
+                                                <td><?php echo $row["idrol"];?></td>
+                                                <td><?php echo "Activo";?></td> 
                                                 <!-- obteniendo los id de la tabla sow para editar y/o eliminar  -->                                             
-                                                <td> <a href="editar_usuario.php?id=<?php echo $row["codigo"];?>" class="link_js_editar">editar</a>
+                                                <td> <a href="editar_usuario.php?id=<?php echo $row["id"];?>" class="link_js_editar">editar</a>
                                                         |
-                                                     <a href="remover_usuario.php?id=<?php echo $row["codigo"];?>" class="link_js_eliminar">remover</a></td>
+                                                     <a href="remover_usuario.php?id=<?php echo $row["id"];?>" class="link_js_eliminar">remover</a></td>
 											</tr>
 										</tbody>
                                        <?php } mysqli_free_result($resultado);?>
