@@ -197,6 +197,7 @@
                                 </table>
                                 <input id="boton-registrar-formulario" type="button" value="Registrar" onclick="location.href='#'">
                                 <input class="cancelar-formulario" type="button" value="Cancelar" onclick="location.href='#'">
+                                <input class="ir-dcc" type="button" value="Ir a DCC" onclick="location.href='formulario_dcc.php'">
                                 </div>                             
                                 </form>
 						</div>

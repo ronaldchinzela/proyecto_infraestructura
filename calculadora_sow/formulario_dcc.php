@@ -1,8 +1,8 @@
 <?php
     //llamando a la conexión de la bd
     include("../conexion.php");
-    //seleccionando todos los datos de la tabla sow_silver
-    $sow_silver = "SELECT * FROM sow_silver";
+    //seleccionando todos los datos de la tabla sow
+    $sow = "SELECT * FROM sow";
 ?>
 <?php
 	//iniciando las sesiones
@@ -20,7 +20,6 @@
 
     //creando variable para el tipo de usuario que inicia sesión
 	$idrol = $_SESSION['idrol'];
-
 ?> 
 
 <!DOCTYPE html>
@@ -47,8 +46,8 @@
             <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- Agregando la variable nombres del inicio de sesión -->  
-                    <?php echo $nombres; ?>
+                <!-- Agregando la variable nombre del inicio de sesión -->  
+                <?php echo $nombres." ".$apellidos;?>
                     <i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Configuración</a>
@@ -107,21 +106,21 @@
                             </div>
                             <div class="dropdown-divider"></div>
                                             
-                            <!-- menú de calculadora sow --> 
+                            <!-- menú de mantenimiento --> 
                             <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                 <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
                                 Calculadora SOW
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <!-- Item de calculadora sow -->
+                            <!-- Item de mantenimiento -->
                             <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="../calculadora_sow/sow.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     SOW</a>
-                                    <a class="nav-link" href="../pagina_principal/home.php">
+                                    <a class="nav-link" href="../calculadora_sow/formulario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-                                    Pendiente</a>
+                                    Formulario 4walls</a>
                                 </nav>
                             </div>  							
 								</div>
@@ -165,78 +164,41 @@
                             <br>        
                             </div>
 
-                          <div>
-                              
-                          <div class="div-tabla-silver"></i><b id="b-registrar-sow">Editar SOW</b><br><br><br>                          
-                            </div>
-                        
-                           
-                            <div id="contenedor-tabla-silver">
-                                
-                                <ul class="menu-registrar-sow">
-                                    <li><a href="editar_bronce.php">Bronce</a></li>
-                                    <li><a href="editar_silver.php">Silver</a></li>
-                                    <li><a href="editar_gold.php">Gold</a></li>
-                                </ul><br>
-                            
+                          <div class="card mb-5">
+                          <div class="card-header"></i><b id="b-formulario">Formulario DCC</b></div>
+                            <div class="card-body">
 
-                               
-                                <div class="contenedor-editar-bronce"> 
-                                <form id="form_editar-bronce" action="registrar.php" method="POST">
-                                <table border="2" id="table-registrar">
+                            <form id="form_dcc" action="registrar_dcc.php" method="POST">
+                                <table border="2" id="table-formulario">
                                     <tr>
-                                         <th colspan="2">BRONCE</th>
+                                         <th colspan="8">Formulario DCC</th>
                                      </tr>
 
                                      <tr>
-                                         <th>Modelo Cloud - Precio por VM</th>
-                                         <th>Unidades (1GB)</th>
+                                         <th>Código</th>
+                                         <th>Serie</th>
+                                         <th>Costo</th>
+                                         <th>ALP</th>
+                                         <th>Estado</th>
                                      </tr>
-                                     <tr>
-                                         <th>Cantidad de vCPU</th>
-                                         <th><input id="input_gold_1" type="text" name="vcpu"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>RAM (GB)</th>
-                                         <th><input id="input_gold_2" type="text" name="ram"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Disco SAS (GB)</th>
-                                         <th><input id="input_gold_3" type="text" name="disco"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>MO CLOUD + SW Genesys</th>
-                                         <th><input id="input_gold_4" type="text" name="mocloud"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>MO COT</th>
-                                         <th><input id="input_gold_5" type="text" name="mocot"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>COT Licencia Monitoreo (CA)</th>
-                                         <th><input id="input_gold_6" type="text" name="cotlicencia"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Licencia Windows - vCPU</th>
-                                         <th><input id="input_gold_7" type="text" name="liwindows"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Licencia Linux</th>
-                                         <th><input id="input_gold_8" type="text" name="lilinux"></th>
-                                     </tr>                                      
-                                     <tr>
-                                         <th>Backup de Base de Datos</th>
-                                         <th><input id="input_gold_9" type="text" name="backup"></th>
-                                     </tr>                                                   
+                                     <tr>                                        
+                                         <th><input id="input_1" type="text"  name="codigo"></th>
+                                         <th><input id="input_2" type="text" name="serie"></th>
+                                         <th><input id="input_6" type="text" name="costo"></th>
+                                         <th><input id="input_7" type="text" name="alp"></th>
+                                         <th><input id="input_8" type="text" name="estado"></th>
+                                     </tr>                                  
                                 </table>
-                                <input type="submit" value="Registrar" id="boton-editar-sow-bronce">
-                                <input class="cancelar-editar-bronce" type="button" value="Cancelar" onclick="location.href='sow.php'">
+                                <input id="boton-registrar-dcc" type="button" value="Registrar" name="dcc">
+                                <input class="cancelar-dcc" type="button" value="Cancelar" onclick="location.href='#'">
+                                <input class="ir-4walls" type="button" value="Volver a 4walls" onclick="location.href='formulario.php'">
                                 </div>                             
                                 </form>
-                             
-                                
-
-                            </main>
+						</div>
+                        
+					</div>
+                    
+				</main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -249,10 +211,13 @@
 				</footer>
 			</div>
 		</div>
+        <script> src="../confirmacion.js"</script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
         <script src="../js/scripts.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 	</body>

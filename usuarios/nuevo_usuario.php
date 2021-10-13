@@ -178,46 +178,21 @@
 
                                      }
                                 ?>
-                     
-                                <form id="form-generar-usuario" action="nuevo_usuario.php" method="post">
-                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre"></span><br>
-                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos"></span><br>
-                                    <span id="span-correo">Correo: <input type="text" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo"></span><br>
-                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular"></span><br>
-                                    <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"></span><br>
-                                    <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"></span><br>
+
+                                <form id="form-generar-usuario" action="registrar_usuario.php" method="post">
+                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre" required></span><br>
+                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos" required></span><br>
+                                    <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo" required></span><br>
+                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular" required></span><br>
+                                    <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"required></span><br>
+                                    <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"required></span><br>
                                     <label for="rol" class="label-rol">Rol:</label>
                                     <select id="cbo-rol" name="rol">
                                         <option value="-">Seleccionar</option>
                                         <?php echo $option; ?>
                                     </select><br>
-                                    <input class="btn-generar-usuario" type="button" value="Generar usuario" name="user" onclick="location.href='gestionar_usuario.php'">
-                                    <?php
-                                         if (isset($_POST['user'])){                                           
-                                            $nombres = $_POST['nombres'];
-                                            $apellidos = $_POST['apellidos'];
-                                            $correo = $_POST['correo'];
-                                            $celular = $_POST['celular'];
-                                            $usuario = $_POST['usuario'];
-                                            $password = $_POST['password'];
-                                            $idrol = $_POST['rol'];
-                                            //validando que solo acepte enteros
-                                            settype($idrol, 'integer');
-                                            
-                                            //creando la consulta
-                                            $consulta = "INSERT INTO `usuarios` (`usuario`,`password`,`nombres`,`idrol`,`apellidos`,`correo`,`celular`)
-                                                         VALUES('$usuario','$password','$nombres',$idrol,'$apellidos','$correo','$celular')";
-                                            $conexion->query($consulta);
-
-                                            if($conexion->affected_rows < 0)
-                                            {
-                                                header("location: gestionar_usuario.php?error=Error al registrar usuario");
-                                            }else
-                                            {
-                                                header("location: gestionar_usuario.php");
-                                            }
-                                         }
-                                    ?>
+                                    <input class="btn-generar-usuario" type="submit" value="Generar usuario" name="user">
+                                    
                                 </form>
 
                                <!--   -->                            

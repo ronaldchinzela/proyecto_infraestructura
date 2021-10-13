@@ -4,17 +4,6 @@
 	
 	//iniciando la sesión del usuario con datos correctos.
 	session_start();
-	
-	//creando alert para validar que el usuario ingrese datos en el formulario
-	//$alert = '';
-	//if(!empty($_POST))
-	//indicando si está vacío el campo usuario o el campo password, a traves de las variables enviadas por _POST
-	//{
-	//	if(empty($_POST['usuario']) || empty($_POST['password']))
-	//	{
-	//		$alert = '<span> ¡Ingrese su usuario y contraseñar! </span>';
-	//	}
-	//}
 
 	//validación del envío del método POST
 	//recibiendo los datos ingresados
@@ -31,10 +20,11 @@
 		//validando si existe o no el usuario 
 		$num = $resultado->num_rows;
 		if($num>0){
+			//traigo los resultados de la consulta sql
 			$row = $resultado->fetch_assoc();
 			$password_bd = $row['password'];
 			
-			//convirtiendo la contraseña ingresada a sha1
+			//creando variable que almacene la contraseña ingresada y la convirta a sha1
 			$pass_c = sha1($password);
 			
 			//validando si la contraseña ingresada es la misma de la base de datos

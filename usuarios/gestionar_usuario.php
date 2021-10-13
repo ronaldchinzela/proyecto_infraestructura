@@ -1,8 +1,8 @@
 <?php
     //llamando a la conexión de la bd
     include("../conexion.php");
-    //seleccionando todos los datos de la tabla sow
-    $usuarios = "SELECT * FROM usuarios";
+    //introduciendo la consulta de dos tablas relacionales con inner join
+    $usuarios = "SELECT * FROM usuarios JOIN rol where usuarios.idrol = rol.id";
 ?>
 <?php
 	//iniciando las sesiones
@@ -185,7 +185,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><?php echo $row["usuario"];?></td>
-                                                <td><?php echo $row["idrol"];?></td>
+                                                <td><?php echo $row["rol"];?></td>
                                                 <td><?php echo "Activo";?></td> 
                                                 <!-- obteniendo los id de la tabla sow para editar y/o eliminar  -->                                             
                                                 <td> <a href="editar_usuario.php?id=<?php echo $row["id"];?>" class="link_js_editar">editar</a>

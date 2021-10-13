@@ -181,8 +181,8 @@
                             
 
                                
-                                <div class="contenedor-tablas"> 
-                                <form id="form_registrar" action="registrar.php" method="POST">
+                                <div class="contenedor-tablas-bronce"> 
+                                <form id="form_registrar-bronce" action="registrar.php" method="POST">
                                 <table border="2" id="table-registrar">
                                     <tr>
                                          <th colspan="2">BRONCE</th>
@@ -229,8 +229,8 @@
                                          <th><input id="input_gold_9" type="text" name="backup"></th>
                                      </tr>                                                   
                                 </table>
-                                <input type="submit" value="Registrar" id="boton-registrar-sow">
-                                <input class="cancelar-registrar" type="button" value="Cancelar" onclick="location.href='sow.php'">
+                                <input type="submit" value="Registrar" id="boton-registrar-sow-bronce">
+                                <input class="cancelar-registrar-bronce" type="button" value="Cancelar" onclick="location.href='sow.php'">
                                 </div>                             
                                 </form>
                              

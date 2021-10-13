@@ -2093,7 +2093,7 @@ pre code {
   left: 58px;
 }
 
-#form_registrar{
+#form_registrar-gold{
   position: inherit;
   background: inherit;
   border: inherit;
@@ -2123,9 +2123,305 @@ pre code {
   background-color: #EFEFEF;
 }
 
+#boton-registrar-sow-gold{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
 .cancelar-registrar{
   box-sizing: border-box;
   top: -213px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-registrar-gold{
+  box-sizing: border-box;
+  top: -180px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+/*estilos registrar silver*/
+#boton-registrar-sow-silver{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-registrar-silver{
+  box-sizing: border-box;
+  top: -180px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+#form_registrar-silver{
+  position: inherit;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+}
+
+.contenedor-tablas-silver{
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+/*estilos registrar bronce*/
+#boton-registrar-sow-bronce{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-registrar-bronce{
+  box-sizing: border-box;
+  top: -180px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+#form_registrar-bronce{
+  position: inherit;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+}
+
+.contenedor-tablas-bronce{
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+/*estilos editar gold*/
+.contenedor-editar-gold{
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+#form_editar-gold{
+  position: inherit;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+}
+
+#boton-editar-sow-gold{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-editar-gold{
+  box-sizing: border-box;
+  top: -180px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+/*estilos editar silver*/
+.contenedor-editar-silver{
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+#form_editar-silver{
+  position: inherit;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+}
+
+#boton-editar-sow-silver{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-editar-silver{
+  box-sizing: border-box;
+  top: -180px;
+  position: relative;
+  left: 140px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+/*estilos editar bronce*/
+.contenedor-editar-bronce{
+  position: relative;
+  width: 100%;
+  margin: auto;
+}
+
+#form_editar-bronce{
+  position: inherit;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+}
+
+#boton-editar-sow-bronce{
+  box-sizing: border-box;
+  top: -155px;
+  position: relative;
+  left: 320px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-editar-bronce{
+  box-sizing: border-box;
+  top: -180px;
   position: relative;
   left: 140px;
   width: 120px;
@@ -2310,8 +2606,98 @@ pre code {
   background-color: #EFEFEF;
 }
 
+.ir-dcc{
+  box-sizing: border-box;
+  top: -170px;
+  position: relative;
+  left: -29px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+/*botones formulario dcc*/
+#boton-registrar-dcc{
+  box-sizing: border-box;
+  top: 35px;
+  position: relative;
+  left: 350px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.cancelar-dcc{
+  box-sizing: border-box;
+  top: 9px;
+  position: relative;
+  left: 200px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+.ir-4walls{
+  box-sizing: border-box;
+  top: -170px;
+  position: relative;
+  left: -29px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
+/*estilos formulario dcc*/
+#form_dcc{
+
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  top: 10px;
+  position: relative;
+  left: inherit;
+  transform: inherit;
+  right: -142px;
+}
+
+
 .contenedor-tablas{
   position: absolute;
+  width: 100%;
+  margin: auto;
+}
+
+.contenedor-tablas-gold{
+  position: relative;
   width: 100%;
   margin: auto;
 }
@@ -2461,7 +2847,7 @@ input[type="password"] {
   padding-left: 10px;
 }
 
-input[type="submit"] {
+#btn_ingresar {
   background-color: rgb(255, 88, 0);
   color: #fff;
   width: 110px;
@@ -6329,7 +6715,7 @@ form {
   font-size: 2em;
 }
 
-/*css página nuevo_usuario*/
+/*estilos página nuevo_usuario*/
 #b-nuevo-usuario{
   color: #000;
   transform: translate(-50%, -50%);
@@ -6499,7 +6885,6 @@ form {
   top: 10px;
   left: 100px;
 }
-
 
 
 .carousel-item-next:not(.carousel-item-left),
