@@ -1,4 +1,8 @@
 <?php
+    //llamando a la conexión de la bd
+    include("../conexion.php");
+?>
+<?php
 	//iniciando las sesiones
 	session_start();
 	
@@ -100,13 +104,13 @@
                             </div>
                             <div class="dropdown-divider"></div>
                                             
-                            <!-- menú de calculadora sow --> 
+                            <!-- menú de mantenimiento --> 
                             <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                 <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
                                 Calculadora SOW
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <!-- Item de calculadora sow -->
+                            <!-- Item de mantenimiento -->
                             <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="../calculadora_sow/sow.php">
@@ -158,99 +162,56 @@
                             <br>        
                             </div>
 
-                          <div class="card mb-4">
-                          <div class="card-header"></i><b id="b-tarifario">TARIFARIO - TI</b></div>
+                          <div class="card mb-10">
+                          <div class="card-header-gestionar-usuario"></i><b id="b-nuevo-usuario">Actualizar usuario</b></div>
                             <div class="card-body">
-                       
-                            <!-- Fecha inicio-->
-                            <h6 id="tarifario-h6-fecha">Fecha Inicio:</h6><input id="tarifario-erika-fecha" type="date">
-                            
-                            <!-- Fecha fin-->
-                            <h6 id="tarifario-h6-fecha-fin">Fecha Fin:</h6><input id="tarifario-erika-fecha-fin" type="date">
 
-                                <br><br>
-
-                            <!-- botón consultar-->
-                            <input class="consultar-tarifario" type="button" value="consultar" onclick="location.href='../reportes/tarifario.php'">
-                            
-
-                            <!-- Tablas -->
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <br><br>    
-                                    <thead>
-                                            <tr>
-                                                <th>ALP</th>
-                                                <th>Cliente</th>
-                                                <th>CPU</th>
-                                                <th>Disco</th>
-                                                <th>RAM</th>
-                                                <th>MO</th>
-                                                <th>Total</th>
-                                                <th>Detalle</th>                                                
-											</tr>
-										</thead>     
-                                        <tbody>
-                                            <tr>
-                                                <td>100040</td>
-                                                <td>GYM</td>
-                                                <td>S/. 10</td>
-                                                <td>S/.2000 </td>
-                                                <td>S/.40</td>
-                                                <td>S/125</td>
-                                                <td>S/.2175</td>
-                                                <td> <a href="../reportes/gym.php">Ver Detalle</a></td>
-											</tr>
-                                            <tr>
-                                                <td>100040</td>
-                                                <td>GYM</td>
-                                                <td>S/. 10</td>
-                                                <td>S/.2000 </td>
-                                                <td>S/.40</td>
-                                                <td>S/125</td>
-                                                <td>S/.2175</td>
-                                                <td> <a href="../reportes/gym.php">Ver Detalle</a></td>
-											</tr>
-                                            <tr>
-                                                <td>100040</td>
-                                                <td>GYM</td>
-                                                <td>S/. 10</td>
-                                                <td>S/.2000 </td>
-                                                <td>S/.40</td>
-                                                <td>S/125</td>
-                                                <td>S/.2175</td>
-                                                <td> <a href="../reportes/gym.php">Ver Detalle</a></td>
-											</tr>
-                                            <tr>
-                                                <td>100040</td>
-                                                <td>GYM</td>
-                                                <td>S/. 10</td>
-                                                <td>S/.2000 </td>
-                                                <td>S/.40</td>
-                                                <td>S/125</td>
-                                                <td>S/.2175</td>
-                                                <td> <a href="../reportes/gym.php">Ver Detalle</a></td>
-											</tr>
-                                            <tr>
-                                                <td>100040</td>
-                                                <td>GYM</td>
-                                                <td>S/. 10</td>
-                                                <td>S/.2000 </td>
-                                                <td>S/.40</td>
-                                                <td>S/125</td>
-                                                <td>S/.2175</td>
-                                                <td> <a href="../reportes/gym.php">Ver Detalle</a></td>
-											</tr>
-                                            
-										</tbody>
-                                        
-									</table>
+                            <!-- Formulario -->
                                     
-                                   
-								</div>
-                                
-							</div>
-                            <input class="reporte-tarifario" type="button" value="Generar reporte" onclick="location.href='../reportes/tarifario.php'">
+                                <!-- Consulta para listar los roles en el combobox -->
+                                <?php
+                                     $select = "SELECT DISTINCT id, rol FROM rol";
+                                     $resul = $conexion->query($select);
+                                    $option = '';
+                                     while($row = mysqli_fetch_array($resul)){
+                                         $option .= "<option value=\"$row[id]\">$row[rol]</option>";
+
+                                     }
+                                ?> 
+
+                                <!-- creando codigo php para la consulta y una variable que capture el id seleccionado-->
+                                <?php
+                                    $id_usuario = $_GET["id_user"]; 
+                                    $sql_usuarios = "SELECT * FROM usuarios WHERE id_usuario = '".$id_usuario."'";
+                                    $resultado_editar = mysqli_query($conexion,$sql_usuarios);
+                                            while ($fila=mysqli_fetch_assoc($resultado_editar)){
+                                ?>
+                                <form id="form-editar-usuario" action="editar_usuario.php" method="post">
+                                    <span id="span-nombre" style="visibility:hidden">Codigo: <input type="hidden" name="txtid" id="input-nombre-nuevo-usuario" value="<?php echo $fila['id_usuario'] ?>"></span><br>
+                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" value="<?php echo $fila['nombres'] ?>" ></span><br>
+                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" value="<?php echo $fila['apellidos'] ?>"></span><br>
+                                    <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" value="<?php echo $fila['correo'] ?>"></span><br>
+                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" value="<?php echo $fila['celular'] ?>"></span><br>
+                                    <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" value="<?php echo $fila['usuario'] ?>"></span><br>
+                                    <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" value="<?php echo $fila['password'] ?>"></span><br>
+                                    <!-- Combox de rol extrayendo data de la bd  -->
+                                    <label for="rol" class="label-rol">Rol:</label>
+                                    <select id="cbo-rol" name="rol">
+                                        <option selected="true" disabled="disabled">Seleccionar</option>
+                                        <?php echo $option; ?>
+                                    </select>
+                                     <!-- Combox de actividad  -->
+                                    <label for="rol" class="label-estado" >Estado:</label>
+                                    <select id="cbo-estado" name="estado" >                                 
+                                        <option selected = "true">Inactivo</option>  
+                                        <option selected = "true">Activo</option>                                    
+                                    </select><br>
+                                    <input class="btn-editar-usuario" type="submit" value="Actualizar usuario" name="user">
+                                    <input class="ver-listado-usuarios-2" type="button" value="Volver al listado" onclick="location.href='../usuarios/gestionar_usuario.php'">  
+                                </form>
+                                <!--  cerrando el while del php -->  
+                                    <?php } ?>                                                                              
+							</div>         
 						</div>
                         
 					</div>
@@ -268,6 +229,7 @@
 				</footer>
 			</div>
 		</div>
+        <script> src="confirmacion.js"</script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
         <script src="../js/scripts.js"></script>

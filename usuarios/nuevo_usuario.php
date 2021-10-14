@@ -7,7 +7,7 @@
 	session_start();
 	
     //validando el cierre de sesión de la página
-	if(!isset($_SESSION['id'])){
+	if(!isset($_SESSION['id_usuario'])){
     //si el usuario cerró sesión, redireccionar a la página del login
 		header("Location: ../login/login.php");
 	}
@@ -186,13 +186,20 @@
                                     <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular" required></span><br>
                                     <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"required></span><br>
                                     <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"required></span><br>
+                                    <!-- Combox de rol extrayendo data de la bd  -->
                                     <label for="rol" class="label-rol">Rol:</label>
                                     <select id="cbo-rol" name="rol">
-                                        <option value="-">Seleccionar</option>
+                                        <option selected="true" disabled="disabled">Seleccionar</option>
                                         <?php echo $option; ?>
+                                    </select>
+                                     <!-- Combox de actividad  -->
+                                    <label for="rol" class="label-estado" style="visibility:hidden">Estado:</label>
+                                    <select id="cbo-estado" name="estado" style="visibility:hidden">                                 
+                                        <option selected disabled = "false">Inactivo</option>  
+                                        <option selected = "true">Activo</option>                                    
                                     </select><br>
                                     <input class="btn-generar-usuario" type="submit" value="Generar usuario" name="user">
-                                    
+                                    <input class="ver-listado-usuarios" type="button" value="Ir a listado" onclick="location.href='../usuarios/gestionar_usuario.php'">
                                 </form>
 
                                <!--   -->                            

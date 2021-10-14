@@ -10,12 +10,13 @@ $celular = $_POST['celular'];
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 $idrol = $_POST['rol'];
+$estado = $_POST['estado'];
 //validando que solo acepte enteros
 settype($idrol, 'integer');
                                             
 //creando la consulta
-$consulta = "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular)
-              VALUES('$usuario',SHA1('$password'),'$nombres','$idrol','$apellidos','$correo','$celular')";
+$consulta = "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular,estado)
+              VALUES('$usuario',SHA1('$password'),'$nombres','$idrol','$apellidos','$correo','$celular','$estado')";
 $conexion->query($consulta);
 
 if($conexion->affected_rows < 0)

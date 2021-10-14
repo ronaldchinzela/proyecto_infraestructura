@@ -2452,7 +2452,6 @@ pre code {
   background-color: #EFEFEF;
 }
 
-
 /*tablas registrar_gold*/
 #input_gold_1{
   border-radius: 0px;
@@ -2554,6 +2553,21 @@ pre code {
   position: relative;
   right: -5px;
   font-size: 2em;
+}
+
+#cbo-estado {
+  margin: -4px;
+  position: relative;
+  top: -22px;
+  left: 198px;
+  width: 117px;
+  padding: 0px;
+  display: block;
+  border: 2px solid #000000;
+  height: 30px;
+  border-radius: inherit;
+  font: 14px Opensans;
+  padding-left: 5px;
 }
 
 /*estilos tabla formulario*/
@@ -6726,11 +6740,16 @@ form {
   
 }
 
+#tabla-gestionar-usuario{
+  position: relative;
+  top: -40px;
+}
+
 .btn-generar-usuario{
   box-sizing: border-box;
-  top: 480px;
+  top: 490px;
   position: absolute;
-  left: 390px;
+  left: 420px;
   width: 120px;
   padding-left: 10px;
   padding-right: 8px;
@@ -6740,9 +6759,25 @@ form {
   border: 1px solid #000;
 }
 
+.ver-listado-usuarios{
+  box-sizing: border-box;
+  top: -81px;
+  position: relative;
+  left: 530px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
+
 #form-generar-usuario{
   position: relative;
-  top: 275px;
+  top: 280px;
   width: auto;
   height: 550px;
   box-sizing: inherit;
@@ -6876,16 +6911,61 @@ form {
   height: 30px;
   border-radius: inherit;
   font: 14px Opensans;
-
   padding-left: 5px;
 }
+
 .label-rol{
   position: relative;
   font-weight: bold;
   top: 10px;
   left: 100px;
 }
+.label-estado{
+  position: relative;
+  font-weight: bold;
+  top: 10px;
+  left: 100px;
+}
 
+/* estilos editar usuario */
+#form-editar-usuario{
+  position: relative;
+  top: 310px;
+  width: auto;
+  height: 615px;
+  box-sizing: inherit;
+  box-shadow: inherit;
+}
+
+.btn-editar-usuario{
+  box-sizing: border-box;
+  top: 570px;
+  position: absolute;
+  left: 420px;
+  width: 120px;
+  padding-left: 3px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.ver-listado-usuarios-2{
+  box-sizing: border-box;
+  top: -26px;
+  position: relative;
+  left: 545px;
+  width: 120px;
+  padding-left: 10px;
+  padding-right: 8px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #EFEFEF;
+}
 
 .carousel-item-next:not(.carousel-item-left),
 .active.carousel-item-right {

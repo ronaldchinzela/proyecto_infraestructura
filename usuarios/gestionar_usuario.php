@@ -9,7 +9,7 @@
 	session_start();
 	
     //validando el cierre de sesión de la página
-	if(!isset($_SESSION['id'])){
+	if(!isset($_SESSION['id_usuario'])){
     //si el usuario cerró sesión, redireccionar a la página del login
 		header("Location: ../login/login.php");
 	}
@@ -170,7 +170,7 @@
 
                             <!-- Tablas -->
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="tabla-gestionar-usuario" width="100%" cellspacing="0">
                                     <br><br>    
                                     <thead>
                                             <tr>
@@ -186,11 +186,11 @@
                                             <tr>
                                                 <td><?php echo $row["usuario"];?></td>
                                                 <td><?php echo $row["rol"];?></td>
-                                                <td><?php echo "Activo";?></td> 
-                                                <!-- obteniendo los id de la tabla sow para editar y/o eliminar  -->                                             
-                                                <td> <a href="editar_usuario.php?id=<?php echo $row["id"];?>" class="link_js_editar">editar</a>
+                                                <td><?php echo $row["estado"];?></td> 
+                                                <!-- obteniendo los id de la tabla usuarios para editar y/o eliminar  -->                                             
+                                                <td> <a href="actualizar_usuario.php?id_user=<?php echo $row["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
                                                         |
-                                                     <a href="remover_usuario.php?id=<?php echo $row["id"];?>" class="link_js_eliminar">remover</a></td>
+                                                     <a href="eliminar_usuario.php?id_user=<?php echo $row["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a></td>
 											</tr>
 										</tbody>
                                        <?php } mysqli_free_result($resultado);?>
@@ -198,7 +198,7 @@
                                                                      
 								</div>   
                                  <!-- llamando al archico js  --> 
-                                <script src='confirmacion.js'></script>  
+                                <script src='../js/delete_usuario.js'></script>  
                                  <!--   -->                            
 							</div>         
 						</div>
@@ -218,13 +218,11 @@
 				</footer>
 			</div>
 		</div>
-        <script> src="confirmacion.js"</script>
+        <script> src="../delete_usuario.js"</script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
         <script src="../js/scripts.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 	</body>

@@ -11,7 +11,7 @@
 	session_start();
 	
     //validando el cierre de sesión de la página
-	if(!isset($_SESSION['id'])){
+	if(!isset($_SESSION['id_usuario'])){
     //si el usuario cerró sesión, redireccionar a la página del login
 		header("Location: ../login/login.php");
 	}
