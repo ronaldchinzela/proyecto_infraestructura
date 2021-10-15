@@ -20,10 +20,10 @@ $apellidos = $_SESSION['apellidos'];
 $idrol = $_SESSION['idrol'];
                             ?> 
 
-<!-- Código php para crear el registro -->
+<!-- Código php para actualizar el usuario -->
 <?php
 include "../conexion.php";
-//validando que todos los campos del formulario estén llenos antes de registrar
+//validando que todos los campos del formulario estén llenos antes de actualizar
     if(!empty($_POST))
     {   
         //si todos los campos del formulairo están vacios
@@ -34,6 +34,7 @@ include "../conexion.php";
             $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
     }else{    
         //almacenando en variables el name de los input
+        //el método $_POST['idusuario'] es invocado en el name del input codigo de usuario
         $idusuario = $_POST['idusuario'];                            
         $nombre = $_POST['nombres'];
         $apellido = $_POST['apellidos'];
@@ -79,18 +80,20 @@ include "../conexion.php";
             }
         }
     }
-                                
+                                                /*Fin del codigo php para actualizar */
+
     //validando si en la página no existe un usuario seleccionado
     if(empty($_GET['id_user']))
     {
         header('Location: gestionar_usuario.php');
     }
-    //validando que el id_user enviado en la url, exista en la bd
+    //validando que el id_user enviado en la url, exista en la bd 
+    //luego creo un query que traiga todos los campos seleccionado de un determinado usuario
     $iduser = $_GET['id_user'];
     $sql = mysqli_query($conexion, "SELECT u.id_usuario, u.nombres, u.password, u.apellidos, u.correo, u.usuario, u.celular, u.estado, (u.idrol)
                                     AS id_rol, (r.rol) AS rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id 
                                     WHERE id_usuario = $iduser");
-    //guardando la consulta en una variable que almacene el númeor de filas del query
+    //guardando la consulta en una variable que almacene el número de filas del query
     $result_sql = mysqli_num_rows($sql);
     //validando si el resultado obtenido es 0 filas
     if($result_sql == 0){
@@ -98,6 +101,9 @@ include "../conexion.php";
     }else{
         $option = '';
         while($data = mysqli_fetch_array($sql)){
+            //almacenando en variables los datos obtenidos del query $sql
+            //igualo las variables al name de los input
+            //luego las variables lo imprimo en el value de los input
             $iduser = $data['id_usuario'];
             $nombres = $data['nombres'];
             $apellidos = $data['apellidos'];
@@ -109,10 +115,10 @@ include "../conexion.php";
             $rol = $data['rol'];
             $estado = $data['estado'];
                                 
-            //trayendo los datos del combo rol
+            //trayendo los datos del combobox rol
             if($idrol == 1){
               $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
-                }else if($idrol == 2){
+                }else{
                $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
              }
         }
@@ -121,40 +127,40 @@ include "../conexion.php";
                                 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Sistema SGTRT</title>
-        <link href="../css/estilos.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    </head>
+ <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Sistema SGTRT</title>
+    <link href="../css/estilos.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+</head>
 
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Barra de navegación-->   
-            <a class="navbar-brand" href="../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            
-             <!-- menú de la sesión -->  
-            <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- Agregando la variable nombre del inicio de sesión -->  
-                <?php echo $nombres." ".$apellidos;?>
-                    <i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Configuración</a>
-                        <div class="dropdown-divider"></div>
-                     <!-- redireccionando el cierre de sesión -->  
-                        <a class="dropdown-item" href="../login/logout.php">Salir</a>
-					</div>
-				</li>
-			</ul>
-		</nav>
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Barra de navegación-->   
+    <a class="navbar-brand" href="../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+    
+        <!-- menú de la sesión -->  
+    <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <!-- Agregando la variable nombre del inicio de sesión -->  
+        <?php echo $nombres." ".$apellidos;?>
+            <i class="fas fa-user fa-fw"></i></a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">Configuración</a>
+                <div class="dropdown-divider"></div>
+                <!-- redireccionando el cierre de sesión -->  
+                <a class="dropdown-item" href="../login/logout.php">Salir</a>
+            </div>
+        </li>
+    </ul>
+</nav>
 <!-- menú lateral de navegación -->
 <div id="layoutSidenav">
 <div id="layoutSidenav_nav">
@@ -162,65 +168,65 @@ include "../conexion.php";
     <div class="sb-sidenav-menu">
         <div class="nav">
 
-                <!-- privilegios de los usuarios -->				
-        <?php if($idrol == 1) { ?>
-                
-                <!-- menú reportes -->
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
-                Reportes
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>  
-                <!-- Item de reportes -->  
-                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link" href="../reportes/consumo_recursos.php">
-                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
-                    Consumo Recursos TI</a>
-                <a class="nav-link" href="../reportes/tarifario.php">
-                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                    Tarifario TI</a>
-                </nav>
-            </div>
-            <div class="dropdown-divider"></div>
+    <!-- privilegios de los usuarios -->				
+<?php if($idrol == 1) { ?>
+    
+    <!-- menú reportes -->
+    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+    <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
+    Reportes
+    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>  
+    <!-- Item de reportes -->  
+    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+        <nav class="sb-sidenav-menu-nested nav">
+    <a class="nav-link" href="../reportes/consumo_recursos.php">
+    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+        Consumo Recursos TI</a>
+    <a class="nav-link" href="../reportes/tarifario.php">
+    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+        Tarifario TI</a>
+    </nav>
+</div>
+<div class="dropdown-divider"></div>
 
-            <!-- menú usuarios -->
-            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                Usuarios
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <!-- Item de usuarios -->
-            <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="../usuarios/nuevo_usuario.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                    Nuevo Usuario</a>
-                    <a class="nav-link" href="../usuarios/gestionar_usuario.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                    Gestionar Usuario</a>
-                </nav>
-            </div>
-            <div class="dropdown-divider"></div>
-                            
-            <!-- menú de mantenimiento --> 
-            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
-                <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
-                Calculadora SOW
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
-            <!-- Item de mantenimiento -->
-            <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="../calculadora_sow/sow.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
-                    SOW</a>
-                    <a class="nav-link" href="../pagina_principal/home.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-                    Pendiente</a>
-                </nav>
-            </div>  							
-                </div>
+<!-- menú usuarios -->
+<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+    Usuarios
+    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+</a>
+<!-- Item de usuarios -->
+<div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+    <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="../usuarios/nuevo_usuario.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+        Nuevo Usuario</a>
+        <a class="nav-link" href="../usuarios/gestionar_usuario.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+        Gestionar Usuario</a>
+    </nav>
+</div>
+<div class="dropdown-divider"></div>
+                
+<!-- menú de mantenimiento --> 
+<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+    <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
+    Calculadora SOW
+    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+</a>
+<!-- Item de mantenimiento -->
+<div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+    <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="../calculadora_sow/sow.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+        SOW</a>
+        <a class="nav-link" href="../pagina_principal/home.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
+        Pendiente</a>
+    </nav>
+</div>  							
+    </div>
 
     <!-- cerrando llave del usuario en sesión --> 
     <?php } ?>
@@ -271,7 +277,7 @@ include "../conexion.php";
                 <div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
             <!---->
             <form id="form-generar-usuario" action="" method="post">
-                <input type="hidden" name="idusuario" value="<?php echo $idusuario ; ?>">
+                <input type="hidden" name="idusuario" value="<?php echo $iduser ; ?>">
                 <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre" value="<?php echo $nombres ; ?>"></span><br>
                 <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos" value="<?php echo $apellidos ; ?>"></span><br>
                 <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo" value="<?php echo $correo ; ?>"></span><br>
