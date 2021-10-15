@@ -13,11 +13,11 @@
 	}
 	
 //creando el nombre del usuario que inicia sesión 
-$nombres = $_SESSION['nombres'];
-$apellidos = $_SESSION['apellidos'];
+//$nombres = $_SESSION['nombres'];
+//$apellidos = $_SESSION['apellidos'];
 
 //creando variable para el tipo de usuario que inicia sesión
-$idrol = $_SESSION['idrol'];
+//$idrol = $_SESSION['idrol'];
                             ?> 
 
 <!-- Código php para actualizar el usuario -->
@@ -274,9 +274,9 @@ include "../conexion.php";
         <!-- Formulario -->
                                                                                                 
                 <!-- creando div que muestre una alerta al registrar un usuario -->
-                <div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
+                <div class="alert-actualizar"><?php echo isset($alert) ? $alert : ''; ?></div>
             <!---->
-            <form id="form-generar-usuario" action="" method="post">
+            <form id="form-editar-usuario" action="" method="post">
                 <input type="hidden" name="idusuario" value="<?php echo $iduser ; ?>">
                 <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre" value="<?php echo $nombres ; ?>"></span><br>
                 <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos" value="<?php echo $apellidos ; ?>"></span><br>

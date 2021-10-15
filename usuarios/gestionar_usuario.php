@@ -183,7 +183,11 @@
 										</thead>
                                        <!-- creando query para listar los usuarios de la bd -->
                                        <?php
-                                            $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id");
+                                            //creando el query del paginador
+                                            //$sql_
+                                            //
+                                            
+                                            $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id ORDER BY usuario");
                                             
                                             //creando variable $resultado que almacene los datos extraidos del query
                                             $resultado = mysqli_num_rows($query_lista_usuario);
@@ -214,10 +218,24 @@
                                 }  
                             ?>
 									</table>
-                            
+                                <!--creando el páginador para los datos de la tabla-->
+                                <div class="paginador">
+                                    <ul>
+                                        <li><a href="#">|<</a></li>
+                                        <li><a href="#"><<</a></li>
+                                        <li class="pageSelected">1</li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">>></a></li>
+                                        <li><a href="#">>|</a></li>
+                                    </ul> 
+                                </div>
+
 								</div>   
                                  <!-- llamando al archico js  --> 
-                                <script src='../js/delete_usuario.js'></script>  
+                                <!--<script src='../js/delete_usuario.js'></script> --> 
                                  <!--   -->                            
 							</div>         
 						</div>

@@ -33,9 +33,6 @@
 				$_SESSION['id_usuario'] = $row['id_usuario'];
 				$_SESSION['nombres'] = $row['nombres'];
 				$_SESSION['apellidos'] = $row['apellidos'];
-				$_SESSION['correo'] = $row['correo'];
-				$_SESSION['celular'] = $row['celular'];
-				$_SESSION['estado'] = $row['estado'];
 				$_SESSION['idrol'] = $row['idrol'];
 				
 				header("Location: ../pagina_principal/home.php");

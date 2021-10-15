@@ -262,28 +262,6 @@ select {
   word-wrap: normal;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
-  cursor: pointer;
-}
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-
 textarea {
   overflow: auto;
   resize: vertical;
@@ -2451,6 +2429,93 @@ pre code {
   color: #000;
   background-color: #EFEFEF;
 }
+
+/*estilos de la página eliminar*/
+.data_delete{
+  text-align: center;
+  top: 70px;
+  position: relative;
+
+}
+.form-eliminar-usuario{
+  border: 0px;
+  background: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+  box-sizing: inherit;
+  box-shadow: inherit;
+  width: inherit;
+  top: inherit;
+  top: 10px;
+  position: relative;
+  left: inherit;
+  transform: inherit;
+  right: 35px;
+}
+
+.data_delete h2{
+  font-size: 17pt;
+  margin: auto;
+  top: -100px;
+  left: 330px;
+  font-weight: bold;
+  color: #000;
+
+  position: relative;
+}
+.data_delete span{
+  font-weight: bold;
+  color: #4f72d4;
+  font-size: 15pt;
+}
+.btn-cancelar{
+  top: 55px;
+  position: relative;
+  width: 124px;
+  background: #478ba2;
+  color: #fff;
+  display: inline-block;
+  padding: 5px;
+  left: -145px;
+  border-radius: 5px;
+  transform: translateX(-50%) translateY(-50%);
+  cursor: pointer;
+  font-weight: bold;
+  margin: 15px;
+}
+.btn-aceptar{
+  top: 53px;
+  position: relative;
+  width: 125px;
+  left: -140px;
+  transform: translateX(-50%) translateY(-50%);
+  height: 35px;
+  background: #42b345;
+  color: #fff;
+  font-size: 13pt;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px;
+}
+.data_delete p{
+  border: 0px;
+  white-space: nowrap;
+  margin:auto;
+  font-size: 20px;
+  top: 20px;
+  right: 120px;
+  text-align: left;
+  position: relative;
+}
+#div-card{
+  height: 0px;
+  border: 0px;
+}
+
 
 /*tablas registrar_gold*/
 #input_gold_1{
@@ -6757,6 +6822,7 @@ form {
   text-align: center;
   border-radius: 4px;
   border: 1px solid #000;
+  background-color: rgb(179, 255, 108) ;
 }
 
 .ver-listado-usuarios{
@@ -6772,7 +6838,7 @@ form {
   border-radius: 4px;
   border: 1px solid #000;
   color: #000;
-  background-color: #EFEFEF;
+  background-color: #c1cdec;
 }
 
 #form-generar-usuario{
@@ -6809,6 +6875,7 @@ form {
   padding-left: 0px;
   white-space: nowrap;
 }
+/*-----------------------------*/
 
 #input-nombre-nuevo-usuario {
   margin: -4px;
@@ -6975,7 +7042,7 @@ form {
 /* estilos editar usuario */
 #form-editar-usuario{
   position: relative;
-  top: 310px;
+  top: 290px;
   width: auto;
   height: 615px;
   box-sizing: inherit;
@@ -6984,16 +7051,17 @@ form {
 
 .btn-editar-usuario{
   box-sizing: border-box;
-  top: 570px;
+  top: 550px;
   position: absolute;
-  left: 420px;
-  width: 120px;
-  padding-left: 3px;
+  left: 400px;
+  width: 128px;
+  padding-left: 5px;
   padding-right: 8px;
   font-weight: bold;
   text-align: center;
   border-radius: 4px;
   border: 1px solid #000;
+  background-color: rgb(179, 255, 108) ;
 }
 
 .link_js_eliminar_usuario{
@@ -7002,7 +7070,7 @@ form {
 
 .ver-listado-usuarios-2{
   box-sizing: border-box;
-  top: -26px;
+  top: -22px;
   position: relative;
   left: 545px;
   width: 120px;
@@ -7013,7 +7081,66 @@ form {
   border-radius: 4px;
   border: 1px solid #000;
   color: #000;
-  background-color: #EFEFEF;
+  background-color: #c1cdec;
+}
+
+/* estilos del alert actualizar usuario */
+.alert-actualizar{
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  margin: 20px auto;
+  top: -35px;
+}
+.msg_error{
+  color: #da0707;
+}
+.msg_save{
+  color: #1fb900;
+}
+.alert-actualizar p{
+  padding: 10px;
+  right: 34px;
+  margin: auto;
+  font-weight: bold;
+  border: 0px;
+  top: -17px;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  font-size: 2em;
+  padding-left: 0px;
+  white-space: nowrap;
+}
+
+/*estilos del páginador de gestionar usuario*/
+.paginador ul{
+  padding: 15px;
+  list-style: none;
+  background: #fff;
+  margin-top: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-end;
+}
+.paginador a, .pageSelected{
+  color: #428bca;
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  width: 35px;
+}
+.paginador a:hover{
+  background: #ddd;
+}
+.pageSelected{
+  color: #fff;
+  background: #428bca;
+  border: 1px solid #428bca;
 }
 
 .carousel-item-next:not(.carousel-item-left),
