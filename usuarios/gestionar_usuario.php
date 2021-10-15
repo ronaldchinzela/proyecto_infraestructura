@@ -173,6 +173,7 @@
                                     <table class="table table-bordered" id="tabla-gestionar-usuario" width="100%" cellspacing="0">
                                     <br><br>    
                                     <thead>
+                                        <!-- títulos de la tabla -->
                                             <tr>
                                                 <th>Usuario</th>
                                                 <th>Rol</th>
@@ -180,22 +181,40 @@
                                                 <th>Editar</th>                                                
 											</tr>
 										</thead>
-                                       <?php $resultado = mysqli_query($conexion, $usuarios);
-                                       while($row=mysqli_fetch_assoc($resultado)){?>
+                                       <!-- creando query para listar los usuarios de la bd -->
+                                       <?php
+                                            $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id");
+                                            
+                                            //creando variable $resultado que almacene los datos extraidos del query
+                                            $resultado = mysqli_num_rows($query_lista_usuario);
+                                            //si el resultado obtenido es mayor a 0 significa que si hay registros
+                                            if($resultado > 0){
+                                            //listando  todos los registros encontrados en un bucle while
+                                            //que liste la cantidad de filas que extrae el query
+                                                while($data = mysqli_fetch_array($query_lista_usuario)){
+                                        ?>
+                                    
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $row["usuario"];?></td>
-                                                <td><?php echo $row["rol"];?></td>
-                                                <td><?php echo $row["estado"];?></td> 
-                                                <!-- obteniendo los id de la tabla usuarios para editar y/o eliminar  -->                                             
-                                                <td> <a href="actualizar_usuario.php?id_user=<?php echo $row["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
+                                            <!-- llenando los datos de la variable $data en las filas de la tabla -->
+                                                <td><?php echo $data["usuario"]; ?></td>
+                                                <td><?php echo $data["rol"]; ?></td>
+                                                <td><?php echo $data["estado"]; ?></td> 
+                                                                                         
+                                                <td> <a href="actualizar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
                                                         |
-                                                     <a href="eliminar_usuario.php?id_user=<?php echo $row["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a></td>
+                                                     <a href="eliminar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a>
+                                                </td>
 											</tr>
 										</tbody>
-                                       <?php } mysqli_free_result($resultado);?>
+
+                                        <!-- cenrrando la llave del php -->
+                                        <?php
+                                    }
+                                }  
+                            ?>
 									</table>
-                                                                     
+                            
 								</div>   
                                  <!-- llamando al archico js  --> 
                                 <script src='../js/delete_usuario.js'></script>  

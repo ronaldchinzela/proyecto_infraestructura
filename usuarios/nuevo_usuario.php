@@ -20,6 +20,53 @@
 	$idrol = $_SESSION['idrol'];
 ?> 
 
+                                <!-- Código php para crear el registro -->
+                                <?php
+                                include "../conexion.php";
+                                //validando que todos los campos del formulario estén llenos antes de registrar
+                                    if(!empty($_POST))
+                                    {   
+                                        //si todos los campos del formulairo están vacios
+                                        $alert='';
+                                        if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
+                                        {
+                                            //se mostrará la siguiente alerta
+                                            $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
+                                        }else{                                
+                                            $nombre = $_POST['nombres'];
+                                            $apellido = $_POST['apellidos'];
+                                            $correo = $_POST['correo'];
+                                            $cel = $_POST['celular'];
+                                            $user = $_POST['usuario'];
+                                            $pass = $_POST['password'];
+                                            $rol = $_POST['rol'];
+                                            $estado = $_POST['estado'];
+                                        
+                                            //validando que el usuario registrado no se repita con otro existente en la bd
+                                            //ejecuntando el query a traves de la $conexion
+                                            $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$user' OR correo = '$correo' ");
+                                            //el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
+                                            $result = mysqli_fetch_array($query);
+
+                                            //validando la variable $result si es mayor a 0 significará que si hay registro
+                                            if($result > 0){
+                                                $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
+                                            }else{
+                                                $query_insert = mysqli_query($conexion, "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular,estado)
+                                                                                         VALUES ('$user',SHA1('$pass'),'$nombre','$rol','$apellido','$correo','$cel','$estado')");
+                                             
+                                            //validando si los datos se an insertado en la bd 
+                                            if($query_insert){
+                                                $alert='<p class="msg_save">¡Usuario registrado correctamente!</p>';
+                                            }else{
+                                                $alert='<p class="msg_error">¡Ocurrió un error al crear el usuario!</p>';
+                                        }
+                                      }
+                                    }
+                                }
+                                     
+                                ?>
+                                
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -168,29 +215,38 @@
 
                             <!-- Formulario -->
                                     
-                                <!-- Consulta para listar los roles en el combobox -->
-                                <?php
-                                     $select = "SELECT DISTINCT id, rol FROM rol";
-                                     $resul = $conexion->query($select);
-                                    $option = '';
-                                     while($row = mysqli_fetch_array($resul)){
-                                         $option .= "<option value=\"$row[id]\">$row[rol]</option>";
-
-                                     }
-                                ?>
-
-                                <form id="form-generar-usuario" action="registrar_usuario.php" method="post">
-                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre" required></span><br>
-                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos" required></span><br>
-                                    <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo" required></span><br>
-                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular" required></span><br>
-                                    <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"required></span><br>
-                                    <span id="span-password">Password: <input type="text" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"required></span><br>
+                                 <!-- creando div que muestre una alerta al registrar un usuario -->
+                                 <div class="alert"><?php echo isset($alert) ? $alert : ''; ?></div>
+                                <!---->
+                                <form id="form-generar-usuario" action="" method="post">
+                                    <span id="span-nombre">Nombres: <input type="text" name="nombres" id="input-nombre-nuevo-usuario" placeholder="Ingrese el nombre"></span><br>
+                                    <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos"></span><br>
+                                    <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo"></span><br>
+                                    <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular"></span><br>
+                                    <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"></span><br>
+                                    <span id="span-password">Password: <input type="password" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"></span><br>
                                     <!-- Combox de rol extrayendo data de la bd  -->
                                     <label for="rol" class="label-rol">Rol:</label>
+                                    <!-- creando query para traer los roles de la bd-->
+                                    <?php
+                                         $query_rol = mysqli_query($conexion, "SELECT * FROM rol");
+                                         //contando las filas que va devolver el query
+                                         $result_rol = mysqli_num_rows($query_rol);                                
+                                    ?>
                                     <select id="cbo-rol" name="rol">
-                                        <option selected="true" disabled="disabled">Seleccionar</option>
-                                        <?php echo $option; ?>
+                                    <option selected="true" disabled="disabled">Seleccionar</option>
+                                        <?php
+                                              if($result_rol > 0)
+                                                 {
+                                                    //guardo los resultados en un array
+                                                    while ($rol = mysqli_fetch_array($query_rol)){
+                                        ?>                                   
+                                                    <option value="<?php echo $rol["id"]; ?>"><?php echo $rol["rol"] ?></option>
+                                        <?php
+                                                 }                                                  
+                                            }
+                                        ?>
+                                                                         
                                     </select>
                                      <!-- Combox de actividad  -->
                                     <label for="rol" class="label-estado" style="visibility:hidden">Estado:</label>
