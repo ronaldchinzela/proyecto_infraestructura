@@ -159,11 +159,11 @@
                             </div>
 
                           <div class="card mb-4">
-                            <div class="card-header"></i><b id="b-reporte">REPORTE - CONSUMO RECURSOS TI</b></div>
+                            <div class="card-header-consumo-recursos"></i><b id="b-reporte">REPORTE - CONSUMO RECURSOS TI</b></div>
                             <div class="card-body">
 
                             <!-- Buscador -->
-                            <h6 id="erika-h6">Cliente:</h6><input id="erika" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="Buscar"
+                            <h6 id="erika-h6">Cliente:</h6><input id="erika-buscar" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="Buscar"
                                 aria-label="Search">
 
                             <!-- Fecha inicio-->

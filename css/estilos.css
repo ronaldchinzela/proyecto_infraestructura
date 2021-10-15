@@ -6555,29 +6555,47 @@ form {
   transform: translate(-50%, -50%);
 }
 
-#erika{
-  top: 70px;
-  position: absolute;
-  right: 800px;
+/*estilos de consumo de recursos*/
+.card-header-consumo-recursos{
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  height: 68px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 38%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+#b-reporte{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 130px;
+  font-size: 2em;
+}
+#erika-buscar{
+  top: -18px;
+  position: relative;
+  right: -19px;
   border: 1px solid #000;
 }
 
 #erika-h6{
-  position: absolute;
-  right: 1010px;
+  position: relative;
+  right: -5px;
+  top: 10px;
 }
 
 #erika-fecha{
   top: 70px;
-  position: absolute;
-  right: 400px;
+  position: relative;
+  right: -50px;
   border-radius: 0px;
   border: 1px solid #000;
 }
 
 #erika-h6-fecha{
-  position: absolute;
-  right: 620px;
+  position: relative;
+  right: -50px;
+  top: 50px;
 }
 
 #erika-fecha-fin{
@@ -6595,9 +6613,9 @@ form {
 
 .erika-consultar {
   box-sizing: border-box;
-  top: 125px;
-  position: absolute;
-  left: 450px;
+  top: 40px;
+  position: relative;
+  left: 600px;
   width: 100px;
   padding-left: 10px;
   padding-right: 8px;
@@ -6605,13 +6623,14 @@ form {
   font-weight: bold;
   border-radius: 4px;
   border: 1px solid #000;
+  background-color: #cad3e7;
 }
 
 .erika-reporte{
   box-sizing: border-box;
-  top: 125px;
-  position: absolute;
-  left: -10px;
+  top: -361px;
+  position: relative;
+  right: -905px;
   width: 120px;
   padding-left: 10px;
   padding-right: 8px;
@@ -6619,6 +6638,7 @@ form {
   text-align: center;
   border-radius: 4px;
   border: 1px solid #000;
+  background-color: rgb(183, 245, 126);
 }
 
 .erika-reporte-grafica{
