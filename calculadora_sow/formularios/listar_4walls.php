@@ -179,18 +179,18 @@
 
                             <!-- Tablas -->
                                 <div class="table-responsive-listar">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="dataTable-listar" width="100%" cellspacing="0">
                                     <br><br>    
                                     <thead>
                                             <tr>
-                                                <th>Mes/año</th>
-                                                <th>Código</th>
-                                                <th>Proyecto</th>
-                                                <th>Costo Nexsus</th>
-                                                <th>Costo HP DC Care</th>
-                                                <th>Soporte Horas</th>
-                                                <th>Total $</th>
-                                                <th>Total Soles</th>                                              
+                                                <th class="th01">Mes/año</th>
+                                                <th class="th02">Código</th>
+                                                <th class="th03">Proyecto</th>
+                                                <th class="th04">Costo Mensual 4Walls</th>
+                                                <th class="th05">Costo Nexsus</th>
+                                                <th class="th06">Costo HP DC Care</th>
+                                                <th class="th07">Total $</th>
+                                                <th class="th08">Total S/.</th>                                              
 											</tr>
 										</thead>   
                                          <!-- creando query para listar los usuarios de la bd -->
@@ -214,9 +214,9 @@
                                                 <td><?php echo $data["mes"]; ?></td>
                                                 <td><?php echo $data["idwalls"]; ?></td>
                                                 <td><?php echo $data["proyecto"]; ?></td>
+                                                <td><?php echo $data["c_mensual"]; ?></td>
                                                 <td><?php echo $data["c_nexsus"]; ?></td>
                                                 <td><?php echo $data["c_hp"]; ?></td>
-                                                <td><?php echo $data["soporte_horas"]; ?></td>
                                                 <td><?php echo $data["total_dolar"]; ?></td>
                                                 <td><?php echo $data["total_soles"]; ?></td>
 											</tr>                                     

@@ -2706,6 +2706,27 @@ pre code {
   background-color: rgb(183, 245, 126);
 }
 
+/*asignando marcos a la tabla*/
+#dataTable-listar thead tr th{
+  border: 2px solid #000;
+}
+#dataTable-listar tbody td{
+  border: 2px solid #000;
+}
+/*---------------------------------------------*/
+#dataTable-listar tr:nth-of-type(1) > .th01{
+  background-color: rgba(255, 244, 244, 0.705);
+}
+#dataTable-listar tr:nth-of-type(1) > .th02,.th03{
+  background-color: #a6c0f8;
+}
+#dataTable-listar tr:nth-of-type(1) > .th04,.th05,.th06{
+  background-color: #f8d3a6;
+}
+#dataTable-listar tr:nth-of-type(1) > .th07,.th08{
+  background-color: #d6bafa;
+}
+
 /*estilos tabla formulario*/
 .card-body-formulario {
   flex: 1 1 auto;
@@ -2720,7 +2741,7 @@ pre code {
 .container-lg,
 .container-md,
 .container-sm {
-  width: 98%;
+  width: 112%;
   position: relative;
   padding-right: 0.90rem;
   padding-left: 0.90rem;
@@ -2746,7 +2767,7 @@ pre code {
   box-shadow: inherit;
   width: inherit;
   top: inherit;
-  top: 50px;
+  top: 20px;
   position: relative;
   left: inherit;
   transform: inherit;
@@ -2818,19 +2839,27 @@ pre code {
 }
 #table-formulario-4walls tr:nth-of-type(2) > .th1,.th2{
   background-color: #a6c0f8;
+  border: 2px solid #000;
 }
 #table-formulario-4walls tr:nth-of-type(2) > .th3,.th4,.th5{
   background-color: #f8d3a6;
+  border: 2px solid #000;
 }
 
 #table-formulario-4walls tr:nth-of-type(2) > .th6,.th7{
   background-color: #d6bafa;
+  border: 2px solid #000;
+}
+#table-formulario-4walls tr:nth-of-type(2) > .th0{
+  background-color: #d9e2f3;
+  border: 2px solid #000;
 }
 
 #table-formulario-4walls tr:nth-of-type(3) > th{
   padding: 6px;
   background-color: #ffff;
   color: #000;
+  border: 2px solid #000;
 }
 
 #input_0{
@@ -2905,7 +2934,47 @@ pre code {
   border: 0;
   position: relative;
 }
-
+/*-----------------------------*/
+.alerta{
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  margin: 20px auto;
+  top: -35px;
+}
+.mensaje_error{
+  color: #da0707;
+}
+.mensaje_error_complete_campos{
+  color: #da0707;
+}
+.mensaje_save{
+  color: #1fb900;
+}
+.alerta p{
+  padding: 10px;
+  margin: auto;
+  font-weight: bold;
+  border: 0px;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 100px;
+  font-size: 2em;
+  padding-left: 0px;
+  white-space: nowrap;
+}
+.alerta .mensaje_error_complete_campos{
+  padding: 10px;
+  margin: auto;
+  font-weight: bold;
+  border: 0px;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 5px;
+  font-size: 2em;
+  padding-left: 0px;
+  white-space: nowrap;
+}
 
 /*botones formulario dcc*/
 #boton-registrar-dcc{
