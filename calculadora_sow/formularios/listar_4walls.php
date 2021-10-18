@@ -1,17 +1,11 @@
 <?php
-    //llamando a la conexión de la bd
-    include("../conexion.php");
-    //seleccionando todos los datos de la tabla sow
-    $sow = "SELECT * FROM sow";
-?>
-<?php
 	//iniciando las sesiones
 	session_start();
 	
     //validando el cierre de sesión de la página
 	if(!isset($_SESSION['id_usuario'])){
     //si el usuario cerró sesión, redireccionar a la página del login
-		header("Location: ../login/login.php");
+		header("Location: ../../login/login.php");
 	}
 	
     //creando el nombre del usuario que inicia sesión 
@@ -31,7 +25,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Sistema SGTRT</title>
-        <link href="../css/estilos.css" rel="stylesheet" />
+        <link href="../../css/estilos.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -53,7 +47,7 @@
                         <a class="dropdown-item" href="#">Configuración</a>
                         <div class="dropdown-divider"></div>
                      <!-- redireccionando el cierre de sesión -->  
-                        <a class="dropdown-item" href="../login/logout.php">Salir</a>
+                        <a class="dropdown-item" href="../../login/logout.php">Salir</a>
 					</div>
 				</li>
 			</ul>
@@ -77,10 +71,10 @@
                              <!-- Item de reportes -->  
 								<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../reportes/consumo_recursos.php">
+                                <a class="nav-link" href="../../reportes/consumo_recursos.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     Consumo Recursos TI</a>
-                                <a class="nav-link" href="../reportes/tarifario.php">
+                                <a class="nav-link" href="../../reportes/tarifario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Tarifario TI</a>
                                 </nav>
@@ -96,10 +90,10 @@
                             <!-- Item de usuarios -->
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../usuarios/nuevo_usuario.php">
+                                    <a class="nav-link" href="../../usuarios/nuevo_usuario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Nuevo Usuario</a>
-                                    <a class="nav-link" href="../usuarios/gestionar_usuario.php">
+                                    <a class="nav-link" href="../../usuarios/gestionar_usuario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Gestionar Usuario</a>
                                 </nav>
@@ -115,12 +109,12 @@
                             <!-- Item de mantenimiento -->
                             <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../calculadora_sow/sow.php">
+                                    <a class="nav-link" href="../../calculadora_sow/sow.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     SOW</a>
-                                    <a class="nav-link" href="../calculadora_sow/formulario.php">
+                                    <a class="nav-link" href="../../calculadora_sow/formularios/listar_4walls.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-                                    Formulario 4walls</a>
+                                    4walls</a>
                                 </nav>
                             </div>  							
 								</div>
@@ -140,10 +134,10 @@
                              <!-- Item de reportes --> 
 							<div class="collapse" id="collapseLayou" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../reportes/consumo_recursos.php">
+                                <a class="nav-link" href="../../reportes/consumo_recursos.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     Consumo Recursos TI</a>
-                                <a class="nav-link" href="../reportes/tarifario.php">
+                                <a class="nav-link" href="../../reportes/tarifario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Tarifario TI</a>
                                      
@@ -164,38 +158,57 @@
                             <br>        
                             </div>
 
-                          <div class="card mb-5">
-                          <div class="card-header"></i><b id="b-formulario">Formulario DCC</b></div>
-                            <div class="card-body">
+                          <div class="card mb-4">
+                            <div class="card-header-listar"></i><b id="listar-b">Costo Mantenimiento</b></div>
+                            <div class="card-body-listar">
 
-                            <form id="form_dcc" action="registrar_dcc.php" method="POST">
-                                <table border="2" id="table-formulario">
-                                    <tr>
-                                         <th colspan="8">Formulario DCC</th>
-                                     </tr>
+                            <!-- Fecha inicio-->
+                            <h6 id="listar-h6-fecha">Fecha Inicio:</h6><input id="listar-fecha" type="date">
+                            
+                            <!-- Fecha fin-->
+                            <h6 id="listar-h6-fecha-fin">Fecha Fin:</h6><input id="listar-fecha-fin" type="date">
 
-                                     <tr>
-                                         <th>Código</th>
-                                         <th>Serie</th>
-                                         <th>Costo</th>
-                                         <th>ALP</th>
-                                         <th>Estado</th>
-                                     </tr>
-                                     <tr>                                        
-                                         <th><input id="input_1" type="text"  name="codigo"></th>
-                                         <th><input id="input_2" type="text" name="serie"></th>
-                                         <th><input id="input_6" type="text" name="costo"></th>
-                                         <th><input id="input_7" type="text" name="alp"></th>
-                                         <th><input id="input_8" type="text" name="estado"></th>
-                                     </tr>                                  
-                                </table>
-                                <input id="boton-registrar-dcc" type="button" value="Registrar" name="dcc">
-                                <input class="cancelar-dcc" type="button" value="Cancelar" onclick="location.href='#'">
-                                <input class="ir-4walls" type="button" value="Volver a 4walls" onclick="location.href='formulario.php'">
-                                </div>                             
-                                </form>
-						</div>
-                        
+                                <br><br>
+
+                            <!-- botón consultar-->
+                            <input class="boton-listar-consultar" type="button" value="consultar" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
+                            <!-- botón registrar-->
+                            <input class="boton-listar-registrar" type="button" value="Registrar" onclick="location.href='../../calculadora_sow/formularios/formulario.php'">
+                            
+
+                            <!-- Tablas -->
+                                <div class="table-responsive-listar">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <br><br>    
+                                    <thead>
+                                            <tr>
+                                                <th>Mes/año</th>
+                                                <th>Código</th>
+                                                <th>Proyecto</th>
+                                                <th>Costo Nexsus</th>
+                                                <th>Costo HP DC Care</th>
+                                                <th>Soporte Horas</th>
+                                                <th>Total $</th>
+                                                <th>Total Soles</th>                                              
+											</tr>
+										</thead>     
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+											</tr>                                     
+										</tbody>
+                                        
+									</table>
+                                    
+                                   
+								</div>                   
 					</div>
                     
 				</main>
@@ -211,10 +224,9 @@
 				</footer>
 			</div>
 		</div>
-        <script> src="../confirmacion.js"</script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
-        <script src="../js/scripts.js"></script>
+        <script src="../../js/scripts.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>

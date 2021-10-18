@@ -113,9 +113,9 @@
                                     <a class="nav-link" href="../calculadora_sow/sow.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     SOW</a>
-                                    <a class="nav-link" href="../calculadora_sow/formulario.php">
+                                    <a class="nav-link" href="../calculadora_sow/formularios/listar_4walls.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-                                    Formulario 4walls</a>
+                                    4walls</a>
                                 </nav>
                             </div>  							
 								</div>

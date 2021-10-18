@@ -1,8 +1,8 @@
 <?php
     //llamando a la conexión de la bd
-    include("../conexion.php");
-    //seleccionando todos los datos de la tabla sow_silver
-    $sow_silver = "SELECT * FROM sow_silver";
+    include("../../conexion.php");
+    //seleccionando todos los datos de la tabla sow
+    $sow = "SELECT * FROM sow";
 ?>
 <?php
 	//iniciando las sesiones
@@ -20,7 +20,6 @@
 
     //creando variable para el tipo de usuario que inicia sesión
 	$idrol = $_SESSION['idrol'];
-
 ?> 
 
 <!DOCTYPE html>
@@ -32,7 +31,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Sistema SGTRT</title>
-        <link href="../css/estilos.css" rel="stylesheet" />
+        <link href="../../css/estilos.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -41,20 +40,20 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Barra de navegación-->   
-            <a class="navbar-brand" href="../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="../../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             
              <!-- menú de la sesión -->  
             <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!-- Agregando la variable nombres del inicio de sesión -->  
-                    <?php echo $nombres; ?>
+                <!-- Agregando la variable nombre del inicio de sesión -->  
+                <?php echo $nombres." ".$apellidos;?>
                     <i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Configuración</a>
                         <div class="dropdown-divider"></div>
                      <!-- redireccionando el cierre de sesión -->  
-                        <a class="dropdown-item" href="../login/logout.php">Salir</a>
+                        <a class="dropdown-item" href="../../login/logout.php">Salir</a>
 					</div>
 				</li>
 			</ul>
@@ -78,10 +77,10 @@
                              <!-- Item de reportes -->  
 								<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../reportes/consumo_recursos.php">
+                                <a class="nav-link" href="../../reportes/consumo_recursos.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     Consumo Recursos TI</a>
-                                <a class="nav-link" href="../reportes/tarifario.php">
+                                <a class="nav-link" href="../../reportes/tarifario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Tarifario TI</a>
                                 </nav>
@@ -97,29 +96,29 @@
                             <!-- Item de usuarios -->
                             <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../usuarios/nuevo_usuario.php">
+                                    <a class="nav-link" href="../../usuarios/nuevo_usuario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Nuevo Usuario</a>
-                                    <a class="nav-link" href="../usuarios/gestionar_usuario.php">
+                                    <a class="nav-link" href="../../usuarios/gestionar_usuario.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Gestionar Usuario</a>
                                 </nav>
                             </div>
                             <div class="dropdown-divider"></div>
                                             
-                            <!-- menú de calculadora sow --> 
+                            <!-- menú de mantenimiento --> 
                             <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                 <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
                                 Calculadora SOW
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <!-- Item de calculadora sow -->
+                            <!-- Item de mantenimiento -->
                             <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../calculadora_sow/sow.php">
+                                    <a class="nav-link" href="../../calculadora_sow/sow.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
                                     SOW</a>
-                                    <a class="nav-link" href="../calculadora_sow/formularios/listar_4walls.php">
+                                    <a class="nav-link" href="../../calculadora_sow/formularios/listar_4walls.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
                                     4walls</a>
                                 </nav>
@@ -159,100 +158,69 @@
 
                             <div id="layoutSidenav_content">
                             <main>
-                                <div class="container-fluid">
+                                <div class="container-fluid-formulario">
                     
                             <div class="row">                
                             <br>        
                             </div>
 
-                          <div>
-                              
-                          <div class="div-tabla-silver"></i><b id="b-registrar-sow">Editar SOW</b><br><br><br>                          
-                            </div>
-                        
-                           
-                            <div id="contenedor-tabla-silver">
-                                
-                                <ul class="menu-registrar-sow">
-                                    <li><a href="editar_bronce.php">Bronce</a></li>
-                                    <li><a href="editar_silver.php">Silver</a></li>
-                                    <li><a href="editar_gold.php">Gold</a></li>
-                                </ul><br>
-                            
+                          <div class="card mb-5">
+                          <div class="card-header"></i><b id="b-formulario">Formulario 4walls</b></div>
+                            <div class="card-body-formulario">
 
-                               
-                                <div class="contenedor-editar-bronce"> 
-                                <form id="form_editar-bronce" action="registrar.php" method="POST">
-                                <table border="2" id="table-registrar">
+                            <form id="form_formulario" action="registrar.php" method="POST">
+                                <table border="2" id="table-formulario-4walls">
                                     <tr>
-                                         <th colspan="2">BRONCE</th>
+                                         <th colspan="8">Formulario 4walls</th>
                                      </tr>
 
                                      <tr>
-                                         <th>Modelo Cloud - Precio por VM</th>
-                                         <th>Unidades (1GB)</th>
+                                         <th class="th0">Mes/año</th>
+                                         <th class="th1">Código</th>
+                                         <th class="th2">Proyecto</th>
+                                         <th class="th3">Costo Mensual 4Walls</th>
+                                         <th class="th4">Costo <br> Nexsus</th>
+                                         <th class="th5">Costo HP DC Care</th>
+                                         <th class="th6">Total $</th>
+                                         <th class="th7">Total S/.</th>
                                      </tr>
-                                     <tr>
-                                         <th>Cantidad de vCPU</th>
-                                         <th><input id="input_gold_1" type="text" name="vcpu"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>RAM (GB)</th>
-                                         <th><input id="input_gold_2" type="text" name="ram"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Disco SAS (GB)</th>
-                                         <th><input id="input_gold_3" type="text" name="disco"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>MO CLOUD + SW Genesys</th>
-                                         <th><input id="input_gold_4" type="text" name="mocloud"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>MO COT</th>
-                                         <th><input id="input_gold_5" type="text" name="mocot"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>COT Licencia Monitoreo (CA)</th>
-                                         <th><input id="input_gold_6" type="text" name="cotlicencia"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Licencia Windows - vCPU</th>
-                                         <th><input id="input_gold_7" type="text" name="liwindows"></th>
-                                     </tr>
-                                     <tr>
-                                         <th>Licencia Linux</th>
-                                         <th><input id="input_gold_8" type="text" name="lilinux"></th>
-                                     </tr>                                      
-                                     <tr>
-                                         <th>Backup de Base de Datos</th>
-                                         <th><input id="input_gold_9" type="text" name="backup"></th>
-                                     </tr>                                                   
+                                     <tr>  
+                                         <th><input id="input_0" type="text"  name="mes"></th>                                      
+                                         <th><input id="input_1" type="text"  name="codigo"></th>
+                                         <th><input id="input_2" type="text" name="proyecto"></th>
+                                         <th><input id="input_3" type="text" name="costoMensual"></th>
+                                         <th><input id="input_4" type="text" name="Cnexus"></th>
+                                         <th><input id="input_5" type="text" name="Chp"></th>
+                                         <th><input id="input_6" type="text" name="totaldolar"></th>
+                                         <th><input id="input_7" type="text" name="totalsoles"></th>
+                                     </tr>                                  
                                 </table>
-                                <input type="submit" value="Registrar" id="boton-editar-sow-bronce">
-                                <input class="cancelar-editar-bronce" type="button" value="Cancelar" onclick="location.href='sow.php'">
+                                <input id="boton-registrar-formulario" type="button" value="Registrar" onclick="location.href='#'">
+                                <input class="cancelar-formulario" type="button" value="Cancelar" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
+                                <input class="ir-dcc" type="button" value="Ir a DCC" onclick="location.href='formulario_dcc.php'">
                                 </div>                             
                                 </form>
-                             
-                                
-
-                            </main>
+						</div>
+                        
+					</div>
+                    
+				</main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Canvia</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-							</div>
 						</div>
 					</div>
 				</footer>
 			</div>
 		</div>
+        <script> src="../confirmacion.js"</script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
-        <script src="../js/scripts.js"></script>
+        <script src="../../js/scripts.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 	</body>

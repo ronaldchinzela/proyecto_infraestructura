@@ -2599,26 +2599,6 @@ pre code {
   border: 0;
   position: relative;
 }
-/*estilos contenedor del formulario*/
-.container-fluid-formulario,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
-  width: 116%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-#b-formulario{
-  color: #000;
-  transform: translateX(-50%) translateY(-50%);
-  position: relative;
-  right: -5px;
-  font-size: 2em;
-}
 
 #cbo-estado {
   margin: -4px;
@@ -2635,7 +2615,125 @@ pre code {
   padding-left: 5px;
 }
 
+/*estilos listar costo mantenimiento*/
+.table-responsive-listar {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -140px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-header-listar{
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  height: 68px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 38%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-body-listar {
+  flex: 1 1 auto;
+  height: 550px;
+  position: relative;
+  padding: 1.25rem;
+}
+#listar-b{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 35px;
+  font-size: 2em;
+}
+
+#listar-fecha{
+  top: -8px;
+  position: relative;
+  right: -218px;
+  border-radius: 0px;
+  border: 1px solid #000;
+}
+
+#listar-h6-fecha{
+  position: relative;
+  right: -150px;
+  top: 20px;
+}
+
+#listar-fecha-fin{
+  top: -56px;
+  position: relative;
+  right: -550px;
+  border-radius: 0px;
+  border: 1px solid #000;
+}
+
+#listar-h6-fecha-fin{
+  position: relative;
+  right: -500px;
+  top: -28px;
+}
+
+.boton-listar-consultar {
+  box-sizing: border-box;
+  top: -127px;
+  position: relative;
+  left: 780px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #cad3e7;
+}
+
+.boton-listar-registrar {
+  box-sizing: border-box;
+  top: 39px;
+  position: relative;
+  position: absolute;
+  right: 40px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: rgb(183, 245, 126);
+}
+
 /*estilos tabla formulario*/
+.card-body-formulario {
+  flex: 1 1 auto;
+  height: 350px;
+  padding: 1.25rem;
+}
+
+.container-fluid-formulario,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 111%;
+  position: relative;
+  padding-right: 0.90rem;
+  padding-left: 0.90rem;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100px;
+}
+
+#b-formulario{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: -8px;
+  font-size: 2em;
+}
 #form_formulario{
 
   background: inherit;
@@ -2646,7 +2744,7 @@ pre code {
   box-shadow: inherit;
   width: inherit;
   top: inherit;
-  top: 10px;
+  top: 50px;
   position: relative;
   left: inherit;
   transform: inherit;
@@ -2687,7 +2785,7 @@ pre code {
 
 .ir-dcc{
   box-sizing: border-box;
-  top: -170px;
+  top: -195px;
   position: relative;
   left: -29px;
   width: 120px;
@@ -2700,6 +2798,112 @@ pre code {
   color: #000;
   background-color: #EFEFEF;
 }
+#table-formulario-4walls tr th{
+  width: 5em;
+}
+
+#table-formulario-4walls tr:nth-of-type(1) > th{
+  background-color: rgb(196, 250, 145);
+  padding: 1px;
+  text-align: center;
+}
+
+#table-formulario-4walls tr:nth-of-type(2) > th{
+  text-align:center;
+  padding: 5px;
+  width: 0px;
+  color: #000;
+}
+#table-formulario-4walls tr:nth-of-type(2) > .th1,.th2{
+  background-color: #a6c0f8;
+}
+#table-formulario-4walls tr:nth-of-type(2) > .th3,.th4,.th5{
+  background-color: #f8d3a6;
+}
+
+#table-formulario-4walls tr:nth-of-type(2) > .th6,.th7{
+  background-color: #d6bafa;
+}
+
+#table-formulario-4walls tr:nth-of-type(3) > th{
+  padding: 6px;
+  background-color: #ffff;
+  color: #000;
+}
+
+#input_0{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_1{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_2{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 200px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_3{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_4{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_5{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_6{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+#input_7{
+  border-radius: 0px;
+  height: 20px;
+  padding: 5px;
+  width: 100px !important;
+  right: 16px;
+  border: 0;
+  position: relative;
+}
+
 
 /*botones formulario dcc*/
 #boton-registrar-dcc{
@@ -2789,105 +2993,6 @@ pre code {
   padding-left: 38%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-
-#table-formulario tr th{
-  width: 5em;
-}
-
-#table-formulario tr:nth-of-type(1) > th{
-  background-color: rgb(196, 250, 145);
-  padding: 1px;
-  text-align: center;
-}
-
-#table-formulario tr:nth-of-type(2) > th{
-  text-align:center;
-  padding: 5px;
-  width: 0px;
-  background-color: rgb(245, 255, 151);
-  color: #000;
-}
-
-#table-formulario tr:nth-of-type(3) > th{
-  padding: 6px;
-  background-color: #ffff;
-  color: #000;
-}
-
-#input_1{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 100px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_2{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 100px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_3{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 200px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_4{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 130px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_5{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 130px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_6{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 100px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_7{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 100px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-#input_8{
-  border-radius: 0px;
-  height: 20px;
-  padding: 5px;
-  width: 100px !important;
-  right: 16px;
-  border: 0;
-  position: relative;
-}
-
-
 
 /*estilos de login*/
 #alert{
