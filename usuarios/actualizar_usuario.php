@@ -24,107 +24,107 @@
 <?php
 include "../conexion.php";
 //validando que todos los campos del formulario estén llenos antes de actualizar
-    if(!empty($_POST))
-    {   
-        //si todos los campos del formulairo están vacios
-        $alert='';
-        if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
-        {
-            //se mostrará la siguiente alerta
-            $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
-    }else{    
-        //almacenando en variables el name de los input
-        //el método $_POST['idusuario'] es invocado en el name del input codigo de usuario
-        $idusuario = $_POST['idusuario'];                            
-        $nombre = $_POST['nombres'];
-        $apellido = $_POST['apellidos'];
-        $correo = $_POST['correo'];
-        $cel = $_POST['celular'];
-        $user = $_POST['usuario'];
-        $pass = $_POST['password'];
-        $rol = $_POST['rol'];
-        $estado = $_POST['estado'];
-    
-        //validando que el usuario registrado no se repita con otro existente en la bd
-        //ejecuntando el query a traves de la $conexion
-        $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE 
-                                            (usuario = '$user' AND id_usuario != $idusuario) 
-                                            OR (correo = '$correo' AND id_usuario != $idusuario) ");
-        //el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
-        $resulta = mysqli_fetch_array($query);
+if(!empty($_POST))
+{   
+//si todos los campos del formulairo están vacios
+$alert='';
+if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
+{
+    //se mostrará la siguiente alerta
+    $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
+}else{    
+//almacenando en variables el name de los input
+//el método $_POST['idusuario'] es invocado en el name del input codigo de usuario
+$idusuario = $_POST['idusuario'];                            
+$nombre = $_POST['nombres'];
+$apellido = $_POST['apellidos'];
+$correo = $_POST['correo'];
+$cel = $_POST['celular'];
+$user = $_POST['usuario'];
+$pass = $_POST['password'];
+$rol = $_POST['rol'];
+$estado = $_POST['estado'];
 
-        //validando la variable $result si es mayor a 0 significará que si hay registro
-        if($resulta > 0){
-            $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
-        }else{
-            if(empty($_POST['password']))
-            {
-                $sql_update = mysqli_query($conexion, "UPDATE usuarios SET nombres = '$nombre', apellidos = '$apellido', 
-                                                        correo = '$correo', celular = '$cel', usuario = '$user',
-                                                        idrol  = '$rol', estado = '$estado' 
-                                                        WHERE id_usuario  = $idusuario");
-            }else{
-                $sql_update = mysqli_query($conexion, "UPDATE usuarios SET nombres = '$nombre', apellidos = '$apellido', 
-                                                        correo = '$correo', celular = '$cel', usuario = '$user',
-                                                        password = SHA1('$pass'), idrol  = '$rol', estado = '$estado' 
-                                                        WHERE id_usuario  = $idusuario");
+//validando que el usuario registrado no se repita con otro existente en la bd
+//ejecuntando el query a traves de la $conexion
+$query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE 
+                                    (usuario = '$user' AND id_usuario != $idusuario) 
+                                    OR (correo = '$correo' AND id_usuario != $idusuario) ");
+//el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
+$resulta = mysqli_fetch_array($query);
 
-            }
-                                                         
-                //validando si los datos se an insertado en la bd 
-                if($sql_update){
-                    $alert='<p class="msg_save">¡Usuario actualizado correctamente!</p>';
-                }else{
-                    $alert='<p class="msg_error">¡Ocurrió un error al actualizar el usuario!</p>';
-            }
-            }
-        }
-    }
-                                                /*Fin del codigo php para actualizar */
-
-    //validando si en la página no existe un usuario seleccionado
-    if(empty($_GET['id_user']))
+//validando la variable $result si es mayor a 0 significará que si hay registro
+if($resulta > 0){
+    $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
+}else{
+    if(empty($_POST['password']))
     {
-        header('Location: gestionar_usuario.php');
-    }
-    //validando que el id_user enviado en la url, exista en la bd 
-    //luego creo un query que traiga todos los campos seleccionado de un determinado usuario
-    $iduser = $_GET['id_user'];
-    $sql = mysqli_query($conexion, "SELECT u.id_usuario, u.nombres, u.password, u.apellidos, u.correo, u.usuario, u.celular, u.estado, (u.idrol)
-                                    AS id_rol, (r.rol) AS rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id 
-                                    WHERE id_usuario = $iduser");
-    //guardando la consulta en una variable que almacene el número de filas del query
-    $result_sql = mysqli_num_rows($sql);
-    //validando si el resultado obtenido es 0 filas
-    if($result_sql == 0){
-        header ('Location: gestionar_usuario.php');
+        $sql_update = mysqli_query($conexion, "UPDATE usuarios SET nombres = '$nombre', apellidos = '$apellido', 
+                                                correo = '$correo', celular = '$cel', usuario = '$user',
+                                                idrol  = '$rol', estado = '$estado' 
+                                                WHERE id_usuario  = $idusuario");
     }else{
-        $option = '';
-        while($data = mysqli_fetch_array($sql)){
-            //almacenando en variables los datos obtenidos del query $sql
-            //igualo las variables al name de los input
-            //luego las variables lo imprimo en el value de los input
-            $iduser = $data['id_usuario'];
-            $nombres = $data['nombres'];
-            $apellidos = $data['apellidos'];
-            $correo = $data['correo'];
-            $celular = $data['celular'];
-            $usuario = $data['usuario'];
-            $password = $data['password'];
-            $idrol = $data['id_rol'];
-            $rol = $data['rol'];
-            $estado = $data['estado'];
-                                
-            //trayendo los datos del combobox rol
-            if($idrol == 1){
-              $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
-                }else{
-               $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
-             }
-        }
+        $sql_update = mysqli_query($conexion, "UPDATE usuarios SET nombres = '$nombre', apellidos = '$apellido', 
+                                                correo = '$correo', celular = '$cel', usuario = '$user',
+                                                password = SHA1('$pass'), idrol  = '$rol', estado = '$estado' 
+                                                WHERE id_usuario  = $idusuario");
+
     }
+                                                    
+        //validando si los datos se an insertado en la bd 
+        if($sql_update){
+            $alert='<p class="msg_save">¡Usuario actualizado correctamente!</p>';
+        }else{
+            $alert='<p class="msg_error">¡Ocurrió un error al actualizar el usuario!</p>';
+    }
+    }
+}
+}
+                                        /*Fin del codigo php para actualizar */
+
+//validando si en la página no existe un usuario seleccionado
+if(empty($_GET['id_user']))
+{
+header('Location: gestionar_usuario.php');
+}
+//validando que el id_user enviado en la url, exista en la bd 
+//luego creo un query que traiga todos los campos seleccionado de un determinado usuario
+$iduser = $_GET['id_user'];
+$sql = mysqli_query($conexion, "SELECT u.id_usuario, u.nombres, u.password, u.apellidos, u.correo, u.usuario, u.celular, u.estado, (u.idrol)
+                            AS id_rol, (r.rol) AS rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id 
+                            WHERE id_usuario = $iduser");
+//guardando la consulta en una variable que almacene el número de filas del query
+$result_sql = mysqli_num_rows($sql);
+//validando si el resultado obtenido es 0 filas
+if($result_sql == 0){
+header ('Location: gestionar_usuario.php');
+}else{
+$option = '';
+while($data = mysqli_fetch_array($sql)){
+    //almacenando en variables los datos obtenidos del query $sql
+    //igualo las variables al name de los input
+    //luego las variables lo imprimo en el value de los input
+    $iduser = $data['id_usuario'];
+    $nombres = $data['nombres'];
+    $apellidos = $data['apellidos'];
+    $correo = $data['correo'];
+    $celular = $data['celular'];
+    $usuario = $data['usuario'];
+    $password = $data['password'];
+    $idrol = $data['id_rol'];
+    $rol = $data['rol'];
+    $estado = $data['estado'];
+                        
+    //trayendo los datos del combobox rol
+    if($idrol == 1){
+        $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
+        }else{
+        $option = '<option value="'.$idrol.'" select>'.$rol.'</option>';
+        }
+}
+}
 ?>
-                                
+                        
 <!DOCTYPE html>
 <html lang="es">
  <head>

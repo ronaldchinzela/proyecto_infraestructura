@@ -206,8 +206,12 @@
         <td><?php echo $data["estado"]; ?></td> 
                                                     
         <td> <a href="actualizar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
-                |
+        <!--creando condición para que el usuario administrador no pueda ser eliminado-->
+        <?php if($data["usuario"] != 'admin'){ ?>
+                |<!--creando variable id_user que reciba el id del usuario a eliminar-->
                 <a href="eliminar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a>
+        <!--cerrando el bloque php-->
+        <?php } ?>
         </td>
     </tr>
 </tbody>
