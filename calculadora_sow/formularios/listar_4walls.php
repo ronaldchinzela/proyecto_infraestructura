@@ -191,7 +191,23 @@
                                                 <th>Total $</th>
                                                 <th>Total Soles</th>                                              
 											</tr>
-										</thead>     
+										</thead>   
+                                         <!-- creando query para listar los usuarios de la bd -->
+                                       <?php
+                                            //creando el query del paginador
+                                            //$sql_
+                                            //
+                                            
+                                            $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id ORDER BY usuario");
+                                            
+                                            //creando variable $resultado que almacene los datos extraidos del query
+                                            $resultado = mysqli_num_rows($query_lista_usuario);
+                                            //si el resultado obtenido es mayor a 0 significa que si hay registros
+                                            if($resultado > 0){
+                                            //listando  todos los registros encontrados en un bucle while
+                                            //que liste la cantidad de filas que extrae el query
+                                                while($data = mysqli_fetch_array($query_lista_usuario)){
+                                        ?>  
                                         <tbody>
                                             <tr>
                                                 <td></td>
