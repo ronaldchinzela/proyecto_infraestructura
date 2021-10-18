@@ -20,52 +20,52 @@
 	$idrol = $_SESSION['idrol'];
 ?> 
 
-                                <!-- Código php para crear el registro -->
-                                <?php
-                                include "../conexion.php";
-                                //validando que todos los campos del formulario estén llenos antes de registrar
-                                    if(!empty($_POST))
-                                    {   
-                                        //si todos los campos del formulairo están vacios
-                                        $alert='';
-                                        if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
-                                        {
-                                            //se mostrará la siguiente alerta
-                                            $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
-                                        }else{                                
-                                            $nombre = $_POST['nombres'];
-                                            $apellido = $_POST['apellidos'];
-                                            $correo = $_POST['correo'];
-                                            $cel = $_POST['celular'];
-                                            $user = $_POST['usuario'];
-                                            $pass = $_POST['password'];
-                                            $rol = $_POST['rol'];
-                                            $estado = $_POST['estado'];
-                                        
-                                            //validando que el usuario registrado no se repita con otro existente en la bd
-                                            //ejecuntando el query a traves de la $conexion
-                                            $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$user' OR correo = '$correo' ");
-                                            //el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
-                                            $result = mysqli_fetch_array($query);
+<!-- Código php para crear el registro -->
+<?php
+include "../conexion.php";
+//validando que todos los campos del formulario estén llenos antes de registrar
+if(!empty($_POST))
+{   
+    //si todos los campos del formulairo están vacios
+    $alert='';
+    if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
+    {
+        //se mostrará la siguiente alerta
+        $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
+    }else{                                
+        $nombre = $_POST['nombres'];
+        $apellido = $_POST['apellidos'];
+        $correo = $_POST['correo'];
+        $cel = $_POST['celular'];
+        $user = $_POST['usuario'];
+        $pass = $_POST['password'];
+        $rol = $_POST['rol'];
+        $estado = $_POST['estado'];
+    
+        //validando que el usuario registrado no se repita con otro existente en la bd
+        //ejecuntando el query a traves de la $conexion
+        $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$user' OR correo = '$correo' ");
+        //el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
+        $result = mysqli_fetch_array($query);
 
-                                            //validando la variable $result si es mayor a 0 significará que si hay registro
-                                            if($result > 0){
-                                                $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
-                                            }else{
-                                                $query_insert = mysqli_query($conexion, "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular,estado)
-                                                                                         VALUES ('$user',SHA1('$pass'),'$nombre','$rol','$apellido','$correo','$cel','$estado')");
-                                             
-                                            //validando si los datos se an insertado en la bd 
-                                            if($query_insert){
-                                                $alert='<p class="msg_save">¡Usuario registrado correctamente!</p>';
-                                            }else{
-                                                $alert='<p class="msg_error">¡Ocurrió un error al crear el usuario!</p>';
-                                        }
-                                      }
-                                    }
-                                }
-                                     
-                                ?>
+        //validando la variable $result si es mayor a 0 significará que si hay registro
+        if($result > 0){
+            $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
+        }else{
+            $query_insert = mysqli_query($conexion, "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular,estado)
+                                                        VALUES ('$user',SHA1('$pass'),'$nombre','$rol','$apellido','$correo','$cel','$estado')");
+            
+        //validando si los datos se an insertado en la bd 
+        if($query_insert){
+            $alert='<p class="msg_save">¡Usuario registrado correctamente!</p>';
+        }else{
+            $alert='<p class="msg_error">¡Ocurrió un error al crear el usuario!</p>';
+    }
+    }
+}
+}
+    
+?>
                                 
 <!DOCTYPE html>
 <html lang="es">

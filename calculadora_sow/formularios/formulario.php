@@ -168,14 +168,18 @@
                           <div class="card-header"></i><b id="b-formulario">Formulario 4walls</b></div>
                             <div class="card-body-formulario">
 
-                            <form id="form_formulario" action="registrar.php" method="POST">
+                             <!-- Formulario -->
+                                    
+                                 <!-- creando div que muestre una alerta al registrar un usuario -->
+                                 <div class="alerta"><?php echo isset($alerta) ? $alerta : ''; ?></div>
+                                <!---->
+                            <form id="form_formulario" action="" method="post">
                                 <table border="2" id="table-formulario-4walls">
                                     <tr>
                                          <th colspan="8">Formulario 4walls</th>
                                      </tr>
 
                                      <tr>
-                                         <th class="th0">Mes/año</th>
                                          <th class="th1">Código</th>
                                          <th class="th2">Proyecto</th>
                                          <th class="th3">Costo Mensual 4Walls</th>
@@ -184,15 +188,14 @@
                                          <th class="th6">Total $</th>
                                          <th class="th7">Total S/.</th>
                                      </tr>
-                                     <tr>  
-                                         <th><input id="input_0" type="text"  name="mes"></th>                                      
+                                     <tr>                                       
                                          <th><input id="input_1" type="text"  name="codigo"></th>
-                                         <th><input id="input_2" type="text" name="proyecto"></th>
-                                         <th><input id="input_3" type="text" name="costoMensual"></th>
-                                         <th><input id="input_4" type="text" name="Cnexus"></th>
-                                         <th><input id="input_5" type="text" name="Chp"></th>
-                                         <th><input id="input_6" type="text" name="totaldolar"></th>
-                                         <th><input id="input_7" type="text" name="totalsoles"></th>
+                                         <th><input id="input_2" type="text" name="proyecto" placeholder="Nombre del proyecto"></th>
+                                         <th><input id="input_3" type="text" name="costoMensual" placeholder="Costo mensual"></th>
+                                         <th><input id="input_4" type="text" name="Cnexus" placeholder="Costo de Nexsus"></th>
+                                         <th><input id="input_5" type="text" name="Chp" placeholder="Costo de HP"></th>
+                                         <th><input id="input_6" type="text" name="totaldolar" placeholder="Precio en dolar"></th>
+                                         <th><input id="input_7" type="text" name="totalsoles" placeholder="Precio en soles"></th>
                                      </tr>                                  
                                 </table>
                                 <input id="boton-registrar-formulario" type="button" value="Registrar" onclick="location.href='#'">

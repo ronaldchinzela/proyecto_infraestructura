@@ -2709,7 +2709,9 @@ pre code {
 /*estilos tabla formulario*/
 .card-body-formulario {
   flex: 1 1 auto;
-  height: 350px;
+  height: 320px;
+  top: 0px;
+  position: relative;
   padding: 1.25rem;
 }
 
@@ -2718,7 +2720,7 @@ pre code {
 .container-lg,
 .container-md,
 .container-sm {
-  width: 111%;
+  width: 98%;
   position: relative;
   padding-right: 0.90rem;
   padding-left: 0.90rem;
@@ -2748,7 +2750,7 @@ pre code {
   position: relative;
   left: inherit;
   transform: inherit;
-  right: 35px;
+  right: 31px;
 }
 
 #boton-registrar-formulario{
@@ -2890,7 +2892,7 @@ pre code {
   height: 20px;
   padding: 5px;
   width: 100px !important;
-  right: 16px;
+  right: 17px;
   border: 0;
   position: relative;
 }

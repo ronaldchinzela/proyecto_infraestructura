@@ -1,4 +1,5 @@
 <?php
+    include("../../conexion.php");
 	//iniciando las sesiones
 	session_start();
 	
@@ -198,29 +199,32 @@
                                             //$sql_
                                             //
                                             
-                                            $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id ORDER BY usuario");
+                                            $query_lista_formulario = mysqli_query($conexion, "SELECT * FROM 4walls");
                                             
                                             //creando variable $resultado que almacene los datos extraidos del query
-                                            $resultado = mysqli_num_rows($query_lista_usuario);
+                                            $resultado = mysqli_num_rows($query_lista_formulario);
                                             //si el resultado obtenido es mayor a 0 significa que si hay registros
                                             if($resultado > 0){
                                             //listando  todos los registros encontrados en un bucle while
                                             //que liste la cantidad de filas que extrae el query
-                                                while($data = mysqli_fetch_array($query_lista_usuario)){
+                                                while($data = mysqli_fetch_array($query_lista_formulario)){
                                         ?>  
                                         <tbody>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><?php echo $data["mes"]; ?></td>
+                                                <td><?php echo $data["idwalls"]; ?></td>
+                                                <td><?php echo $data["proyecto"]; ?></td>
+                                                <td><?php echo $data["c_nexsus"]; ?></td>
+                                                <td><?php echo $data["c_hp"]; ?></td>
+                                                <td><?php echo $data["soporte_horas"]; ?></td>
+                                                <td><?php echo $data["total_dolar"]; ?></td>
+                                                <td><?php echo $data["total_soles"]; ?></td>
 											</tr>                                     
 										</tbody>
-                                        
+                                        <?php
+                                            }
+                                        }  
+                                        ?>
 									</table>
                                     
                                    
