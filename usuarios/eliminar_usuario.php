@@ -27,6 +27,12 @@
     //eliminará el id enviado por el método post del formulario
     if(!empty($_POST))
     {
+        //validación para retornar al listado cuando se ingrese el id 1 del usuario
+        if($_POST['idusuario'] == 1){
+            header("location: gestionar_usuario.php");
+            exit;
+        }
+
         $idusuario = $_POST['idusuario'];
         $query_delete = mysqli_query($conexion, "DELETE FROM usuarios WHERE id_usuario = $idusuario");
 

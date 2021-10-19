@@ -38,7 +38,7 @@ if(!empty($_POST))
         $correo = $_POST['correo'];
         $cel = $_POST['celular'];
         $user = $_POST['usuario'];
-        $pass = $_POST['password'];
+        $pass = md5($_POST['password']);
         $rol = $_POST['rol'];
         $estado = $_POST['estado'];
     
@@ -53,7 +53,7 @@ if(!empty($_POST))
             $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
         }else{
             $query_insert = mysqli_query($conexion, "INSERT INTO usuarios(usuario,password,nombres,idrol,apellidos,correo,celular,estado)
-                                                        VALUES ('$user',SHA1('$pass'),'$nombre','$rol','$apellido','$correo','$cel','$estado')");
+                                                        VALUES ('$user','$pass','$nombre','$rol','$apellido','$correo','$cel','$estado')");
             
         //validando si los datos se an insertado en la bd 
         if($query_insert){

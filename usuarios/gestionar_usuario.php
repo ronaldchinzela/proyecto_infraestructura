@@ -166,54 +166,73 @@
 
 <div class="card mb-10">
 <div class="card-header-gestionar-usuario"></i><b id="b-gestionar-usuario">Gestionar usuario</b></div>
-<div class="card-body">
+<div class="card-body-gestionar-usuario">
 
 <!-- Tablas -->
 <div class="table-responsive">
 <table class="table table-bordered" id="tabla-gestionar-usuario" width="100%" cellspacing="0">
 <br><br>    
 <thead>
-    <!-- títulos de la tabla -->
-        <tr>
-            <th>Usuario</th>
-            <th>Rol</th>
-            <th>Estado</th>
-            <th>Editar</th>                                                
-        </tr>
-    </thead>
-    <!-- creando query para listar los usuarios de la bd -->
-    <?php
-        //creando el query del paginador
-        //$sql_
-        //
-                
-    $query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id ORDER BY usuario");
-    
-    //creando variable $resultado que almacene los datos extraidos del query
-    $resultado = mysqli_num_rows($query_lista_usuario);
-    //si el resultado obtenido es mayor a 0 significa que si hay registros
-    if($resultado > 0){
-    //listando  todos los registros encontrados en un bucle while
-    //que liste la cantidad de filas que extrae el query
-        while($data = mysqli_fetch_array($query_lista_usuario)){
+<!-- títulos de la tabla -->
+<tr>
+    <th>Usuario</th>
+    <th>Rol</th>
+    <th>Estado</th>
+    <th>Editar</th>                                                
+</tr>
+</thead>
+
+<!--paginador-->
+<?php
+//creando un query que nos traiga la cantidad de registros existentes
+$sql_contador = mysqli_query($conexion, "SELECT COUNT(*) AS total_registro FROM usuarios");
+//creando una variable para almacenar los registros en un array
+$resultado_contador = mysqli_fetch_array($sql_contador);
+//creando una variable para acceder al resultado del campo total_registro
+$total_registro = $resultado_contador['total_registro'];
+//creando variable para almacenar la cantidad de registros por página
+$por_pagina = 5;
+//
+if(empty($_GET['pagina']))
+{
+    $pagina = 1;
+}else{
+    $pagina = $_GET['pagina'];
+}
+
+$desde = ($pagina-1) * $por_pagina;
+$total_paginas = ceil($total_registro / $por_pagina);
+
+//agregando las variables de la paginación al query de listar 
+//creando query para listar los usuarios de la bd        
+$query_lista_usuario = mysqli_query($conexion, "SELECT u.id_usuario, u.usuario, u.nombres, u.apellidos, u.correo, u.celular, u.estado, r.rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id                                           
+                                            ORDER BY u.id_usuario ASC LIMIT $desde, $por_pagina");
+
+//creando variable $resultado que almacene los datos extraidos del query
+$resultado = mysqli_num_rows($query_lista_usuario);
+//si el resultado obtenido es mayor a 0 significa que si hay registros
+if($resultado > 0){
+//listando  todos los registros encontrados en un bucle while
+//que liste la cantidad de filas que extrae el query
+while($data = mysqli_fetch_array($query_lista_usuario)){
 ?>
         
 <tbody>
-    <tr>
-    <!-- llenando los datos de la variable $data en las filas de la tabla -->
-        <td><?php echo $data["usuario"]; ?></td>
-        <td><?php echo $data["rol"]; ?></td>
-        <td><?php echo $data["estado"]; ?></td> 
-                                                    
-        <td> <a href="actualizar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
-        <!--creando condición para que el usuario administrador no pueda ser eliminado-->
-        <?php if($data["usuario"] != 'admin'){ ?>
-                |<!--creando variable id_user que reciba el id del usuario a eliminar-->
-                <a href="eliminar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a>
-        <!--cerrando el bloque php-->
-        <?php } ?>
-        </td>
-    </tr>
+<tr>
+<!-- llenando los datos de la variable $data en las filas de la tabla -->
+    <td><?php echo $data["usuario"]; ?></td>
+    <td><?php echo $data["rol"]; ?></td>
+    <td><?php echo $data["estado"]; ?></td> 
+                                                
+    <td> <a href="actualizar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_editar_usuario">editar</a>
+    <!--creando condición para que el usuario administrador no pueda ser eliminado-->
+    <?php if($data["usuario"] != 'admin'){ ?>
+            |<!--creando variable id_user que reciba el id del usuario a eliminar-->
+            <a href="eliminar_usuario.php?id_user=<?php echo $data["id_usuario"];?>" class="link_js_eliminar_usuario">remover</a>
+    <!--cerrando el bloque php-->
+    <?php } ?>
+    </td>
+</tr>
 </tbody>
 
         <!-- cenrrando la llave del php -->
@@ -225,22 +244,35 @@
 <!--creando el páginador para los datos de la tabla-->
 <div class="paginador">
     <ul>
-        <li><a href="#">|<</a></li>
-        <li><a href="#"><<</a></li>
-        <li class="pageSelected">1</li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">>></a></li>
-        <li><a href="#">>|</a></li>
+        <?php
+             if($pagina !=1)
+             {
+        ?>
+        <li><a href="?pagina=<?php echo 1; ?>">|<</a></li>
+        <li><a href="?pagina=<?php echo $pagina-1; ?>"><<</a></li>
+        <?php
+        }
+             for($i=1; $i <= $total_paginas; $i++){
+                 if($i == $pagina)
+                 {
+                    echo '<li class="pageSelected">'.$i.'</li>';
+                 }else{
+                    echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
+                 }
+                 
+             }
+             if($pagina != $total_paginas)
+             {
+        ?>
+        <li><a href="?pagina=<?php echo $pagina + 1; ?>">>></a></li>
+        <li><a href="?pagina=<?php echo $total_paginas; ?> ">>|</a></li>
+        <?php } ?>
     </ul> 
+    <!-- fin del paginador -->
 </div>
 
 </div>   
-        <!-- llamando al archico js  --> 
-    <!--<script src='../js/delete_usuario.js'></script> --> 
-        <!--   -->                            
+                       
 </div>         
 </div>
 
@@ -259,7 +291,6 @@
 </footer>
 </div>
 </div>
-<script> src="../delete_usuario.js"</script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
 <script src="../js/scripts.js"></script>

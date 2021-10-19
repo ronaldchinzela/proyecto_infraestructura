@@ -1,8 +1,4 @@
 <?php
-    //llamando a la conexión de la bd
-    include("../conexion.php");
-?>
-<?php
 	//iniciando las sesiones
 	session_start();
 	
@@ -18,7 +14,7 @@
 
 //creando variable para el tipo de usuario que inicia sesión
 //$idrol = $_SESSION['idrol'];
-                            ?> 
+?> 
 
 <!-- Código php para actualizar el usuario -->
 <?php
@@ -28,7 +24,7 @@ if(!empty($_POST))
 {   
 //si todos los campos del formulairo están vacios
 $alert='';
-if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
+if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['rol']) || empty($_POST['estado']))
 {
     //se mostrará la siguiente alerta
     $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
@@ -41,7 +37,7 @@ $apellido = $_POST['apellidos'];
 $correo = $_POST['correo'];
 $cel = $_POST['celular'];
 $user = $_POST['usuario'];
-$pass = $_POST['password'];
+$pass = md5($_POST['password']);
 $rol = $_POST['rol'];
 $estado = $_POST['estado'];
 
@@ -66,7 +62,7 @@ if($resulta > 0){
     }else{
         $sql_update = mysqli_query($conexion, "UPDATE usuarios SET nombres = '$nombre', apellidos = '$apellido', 
                                                 correo = '$correo', celular = '$cel', usuario = '$user',
-                                                password = SHA1('$pass'), idrol  = '$rol', estado = '$estado' 
+                                                password = '$pass', idrol  = '$rol', estado = '$estado' 
                                                 WHERE id_usuario  = $idusuario");
 
     }

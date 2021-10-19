@@ -8,9 +8,11 @@
 	//validación del envío del método POST
 	//recibiendo los datos ingresados
 	if($_POST){
-		
-		$usuario = $_POST['usuario'];
-		$password = $_POST['password'];
+		//utilizo la función mysqli_real_escape_string para evitar vulnerabilidades en el acceso,
+		//bloqueando así los caracteres extraños.
+		$usuario = mysqli_real_escape_string($conexion, $_POST['usuario']);
+		//utilizo la función md5 para encriptar la contraseña
+		$password = md5(mysqli_real_escape_string($conexion, $_POST['password']));
 		
 		//consulta sql para verificar si el usuario existe
 		$sql = "SELECT id_usuario, password, nombres,apellidos, idrol,correo,celular,estado FROM usuarios WHERE usuario='$usuario'";
@@ -24,8 +26,8 @@
 			$row = $resultado->fetch_assoc();
 			$password_bd = $row['password'];
 			
-			//creando variable que almacene la contraseña ingresada y la convirta a sha1
-			$pass_c = sha1($password);
+			//creando variable que almacene la contraseña ingresada
+			$pass_c = ($password);
 			
 			//validando si la contraseña ingresada es la misma de la base de datos
 			if($password_bd == $pass_c){

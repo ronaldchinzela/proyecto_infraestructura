@@ -7001,11 +7001,6 @@ form {
   
 }
 
-#tabla-gestionar-usuario{
-  position: relative;
-  top: -40px;
-}
-
 .btn-generar-usuario{
   box-sizing: border-box;
   top: 490px;
@@ -7235,6 +7230,52 @@ form {
   left: 100px;
 }
 
+/* estilos de gestionar usuario */
+#tabla-gestionar-usuario{
+  position: relative;
+  top: -40px;
+}
+.card-body-gestionar-usuario {
+  flex: 1 1 auto;
+  min-height: 1px;
+  height: 390px;
+  padding: 1.25rem;
+}
+
+/*estilos del páginador de gestionar usuario*/ 
+.paginador ul{
+  padding: 0px;
+  list-style: none;
+  background: #fff;
+  margin-top: 15px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  border: 0px;
+  position: relative;
+  top: -40px;
+  right: 1px;
+  justify-content: flex-end;
+}
+.paginador a, .pageSelected{
+  color: #428bca;
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  width: 35px;
+}
+.paginador a:hover{
+  background: #ddd;
+}
+.pageSelected{
+  color: #fff;
+  background: #428bca;
+  border: 1px solid #428bca;
+}
+
 /* estilos editar usuario */
 #form-editar-usuario{
   position: relative;
@@ -7306,37 +7347,6 @@ form {
   font-size: 2em;
   padding-left: 0px;
   white-space: nowrap;
-}
-
-/*estilos del páginador de gestionar usuario*/
-.paginador ul{
-  padding: 15px;
-  list-style: none;
-  background: #fff;
-  margin-top: 15px;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  justify-content: flex-end;
-}
-.paginador a, .pageSelected{
-  color: #428bca;
-  border: 1px solid #ddd;
-  padding: 5px;
-  display: inline-block;
-  font-size: 14px;
-  text-align: center;
-  width: 35px;
-}
-.paginador a:hover{
-  background: #ddd;
-}
-.pageSelected{
-  color: #fff;
-  background: #428bca;
-  border: 1px solid #428bca;
 }
 
 .carousel-item-next:not(.carousel-item-left),
