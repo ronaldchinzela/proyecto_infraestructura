@@ -187,7 +187,7 @@ $idrol = $_SESSION['idrol'];
 <thead>
     <tr>
         <th class="th01">Mes/año</th>
-        <th class="th02">Código</th>
+        <th class="th02">ALP</th>
         <th class="th03">Proyecto</th>
         <th class="th04">Costo Mensual 4Walls</th>
         <th class="th05">Costo Nexsus</th>
