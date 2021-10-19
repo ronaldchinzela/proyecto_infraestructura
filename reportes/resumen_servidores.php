@@ -161,26 +161,26 @@
 </div>
 
 <div class="card mb-4">
-<div class="card-header-consumo-recursos"></i><b id="b-reporte">RESUMEN SERVIDORES - CLOUD</b></div>
-<div class="card-body-consumo-recursos">
+<div class="card-header-resumen"></i><b id="b-resumen">RESUMEN SERVIDORES - CLOUD</b></div>
+<div class="card-body-resumen">
 
 <!-- Buscador cliente -->
-<h6 id="erika-h6">Cliente:</h6><input id="erika-buscar" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="  Buscar por cliente"
+<h6 id="resumen-h6-cliente">Cliente:</h6><input id="input-resumen-buscar-cliente" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="  Buscar por cliente"
     aria-label="Search">
 
 <!-- Buscador Hostname -->
-<h6 id="buscador-hostname">Hostname/VMware:</h6><input id="input-buscar-hostname" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="  Buscar por VMware"
+<h6 id="resumen-h6-hostname">Hostname/VMware:</h6><input id="input-resumen-buscar-hostname" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="  Buscar por VMware"
     aria-label="Search">
 
     <br><br>
 
 <!-- botón consultar -->
-<input class="erika-consultar" type="button" value="consultar" onclick="location.href='../reportes/resumen_servidores.php'">
+<input class="resumen-consultar" type="button" value="consultar" onclick="location.href='../reportes/resumen_servidores.php'">
 
 
 <!-- Tablas -->
-<div class="table-responsive-consumo">
-<table class="table table-bordered" id="dataTable-consumo" width="100%" cellspacing="0">
+<div class="table-responsive-resumen">
+<table class="table table-bordered" id="dataTable-resumen" width="100%" cellspacing="0">
 <br><br>    
 <thead>
         <tr>

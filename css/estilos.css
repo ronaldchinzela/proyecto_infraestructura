@@ -6847,7 +6847,81 @@ form {
   border: 1px solid #000;
   background-color: rgb(183, 245, 126);
 }
+/* estilos resumen de servidores */
+.card-header-resumen{
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  height: 68px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 38%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-body-resumen{
+  flex: 1 1 auto;
+  height: 460px;
+  min-height: 10px;
+  padding: 1.25rem;
+  position: relative;
+}
+#dataTable-resumen{
+  position: relative;
+  top: -45px;
+}
+.table-responsive-resumen{
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -65px;
+  -webkit-overflow-scrolling: touch;
+}
+#b-resumen{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 122px;
+  font-size: 2em;
+}
+#input-resumen-buscar-cliente{
+  top: -18px;
+  position: relative;
+  right: -175px;
+  border: 1px solid #000;
+}
 
+#resumen-h6-cliente{
+  position: relative;
+  right: -160px;
+  top: 10px;
+}
+#resumen-h6-hostname{
+  position: relative;
+  right: -500px;
+  top: -40px;
+}
+#input-resumen-buscar-hostname{
+  top: -67px;
+  position: relative;
+  right: -605px;
+  border: 1px solid #000;
+}
+
+.resumen-consultar {
+  box-sizing: border-box;
+  top: -80px;
+  position: relative;
+  left: 400px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #cad3e7;
+}
+
+/*********************************/
 .erika-reporte-grafica{
   box-sizing: border-box;
   top: 130px;
