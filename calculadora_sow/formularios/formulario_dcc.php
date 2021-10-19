@@ -83,6 +83,9 @@
                                 <a class="nav-link" href="../../reportes/tarifario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
                                     Tarifario TI</a>
+                                <a class="nav-link" href="../../reportes/resumen_servidores.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+                                    Resumen de Servidores</a>
                                 </nav>
                             </div>
                             <div class="dropdown-divider"></div>
