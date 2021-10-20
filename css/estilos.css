@@ -2614,6 +2614,82 @@ pre code {
   font: 14px Opensans;
   padding-left: 5px;
 }
+/* estilos mantenimiento_hp */
+/* estilos mantenimiento_4walls */
+
+/* estilos mantenimiento_nexsus */
+.table-responsive-nexsus {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -120px;
+  -webkit-overflow-scrolling: touch;
+}
+.card-header-nexsus{
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  height: 68px;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding-left: 38%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-body-nexsus {
+  flex: 1 1 auto;
+  height: 384px;
+  position: relative;
+  padding: 1.25rem;
+}
+#nexsus-b{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  right: 90px;
+  font-size: 2em;
+}
+.boton-nexsus-atras {
+  box-sizing: border-box;
+  top: 110px;
+  position: relative;
+  left: 510px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: #cad3e7;
+}
+.boton-nexsus-modificar {
+  box-sizing: border-box;
+  top: 84px;
+  position: relative;
+  left: 360px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 8px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background-color: rgb(183, 245, 126);
+}
+
+/*asignando marcos a la tabla nexsus*/
+#dataTable-nexsus thead tr th{
+  border: 2px solid #000;
+}
+#dataTable-nexsus tbody td{
+  border: 2px solid #000;
+}
+/*---------------------------------------------*/
+#dataTable-nexsus tr:nth-of-type(1) > .th003{
+  background-color: #a6c0f8;
+}
+#dataTable-nexsus tr:nth-of-type(1) > .th004,.th005,.th006,.th007,.th008{
+  background-color: #f8d3a6;
+}
 
 /* estilos listar_4walls */
 .table-responsive-listar {
@@ -2624,7 +2700,9 @@ pre code {
   top: -100px;
   -webkit-overflow-scrolling: touch;
 }
-
+.font-4walls,.font-nexsus,.font-hp{
+  color: #000;
+}
 .card-header-listar{
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
@@ -2649,7 +2727,7 @@ pre code {
 .cbo-año{
   position: relative;
   top: -34px;
-  left: 390px;
+  left: 350px;
   width: 60px;
   font-size: 16px;
   font-family: 'Arial', sans-serif;
@@ -2677,7 +2755,7 @@ pre code {
 .cbo-mes{
   position: relative;
   top: -67px;
-  left: 535px;
+  left: 495px;
   width: 60px;
   font-size: 16px;
   font-family: 'Arial', sans-serif;
@@ -2707,7 +2785,7 @@ pre code {
   box-sizing: border-box;
   top: -95px;
   position: relative;
-  left: 650px;
+  left: 600px;
   width: 100px;
   padding-left: 10px;
   padding-right: 8px;
@@ -7131,19 +7209,29 @@ form {
   left: 15px;
   
 }
-#cbo-sow {
-  margin: -4px;
+#sow-h6{
   position: relative;
-  top: -22px;
-  left: 265px;
-  width: 60px;
-  padding: 0px;
-  display: block;
-  border: 2px solid #000000;
-  height: 30px;
-  border-radius: inherit;
-  font: 14px Opensans;
-  padding-left: 5px;
+  right: -100px;
+  top: 10px;
+}
+.sow-buscar{
+  top: -18px;
+  position: relative;
+  right: -230px;
+  width: 145px;
+  border: 1px solid #000;
+  font-family: "Font Awesome 5 Brands"; 
+  font-weight: 500;
+  background-color: rgb(225, 228, 231);
+  text-indent: 17px;
+}
+#icono-search{
+position: relative;
+top: -42px;
+right: -260px;
+color: rgb(153, 151, 151);
+padding: 3px 2px;
+transition: .3s;
 }
 
 .btn-guardar-servidor{

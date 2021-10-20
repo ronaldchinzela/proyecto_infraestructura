@@ -163,78 +163,40 @@ $idrol = $_SESSION['idrol'];
 </div>
 
 <div class="card mb-4">
-<div class="card-header-listar"></i><b id="listar-b">Costo Mantenimiento</b></div>
-<div class="card-body-listar">
+<div class="card-header-nexsus"></i><b id="nexsus-b">Costo Mantenimiento - 4Walls</b></div>
+<div class="card-body-nexsus">
 
 <br><br>
-<!-- Combox de actividad  -->
-<select class="cbo-año">                            
-    <option>Año</option>  
-    <option>2021</option>
-    <option>2020</option> 
-    <option>2019</option>
-    <option>2018</option>  
-    <option>2017</option>                                     
-</select><br>
-
-<select class="cbo-mes">                              
-    <option>Mes</option>  
-    <option>Junio</option>
-    <option>Julio</option> 
-    <option>Agosto</option>  
-    <option>Setiembre</option>  
-    <option>Octubre</option>                                   
-</select><br>
 
 <!-- botón consultar-->
-<input class="boton-listar-consultar" type="button" value="consultar" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
+<input class="boton-nexsus-atras" type="button" value="Ver listado" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
+<input class="boton-nexsus-modificar" type="button" value="Modificar" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
 
 <!-- Tablas -->
-<div class="table-responsive-listar">
-<table class="table table-bordered" id="dataTable-listar" width="100%" cellspacing="0">
+<div class="table-responsive-nexsus">
+<table class="table table-bordered" id="dataTable-nexsus" width="100%" cellspacing="0">
 <br><br>    
 <thead>
     <tr>
-        <th class="th02">ALP</th>
-        <th class="th03">Proyecto</th>
-        <th class="th04">Costo Mensual 4Walls</th>
-        <th class="th05">Costo Nexsus</th>
-        <th class="th06">Costo HP DC Care</th>
-        <th class="th07">Total $</th>
-        <th class="th08">Total S/.</th>                                              
+        <th class="th003">Proyecto</th>
+        <th class="th004">Maquina</th>
+        <th class="th005">serie</th>
+        <th class="th006">Costo de equipo</th>
+        <th class="th007">fecha de inicio de contrato</th>
+        <th class="th008">fecha de fin de contrato</th>                                              
     </tr>
 </thead>   
-<!-- creando query para listar los usuarios de la bd -->
-<?php
-    //creando el query del paginador
-    //$sql_
-    //
-    
-    $query_lista_formulario = mysqli_query($conexion, "SELECT * FROM 4walls");
-    
-    //creando variable $resultado que almacene los datos extraidos del query
-    $resultado = mysqli_num_rows($query_lista_formulario);
-    //si el resultado obtenido es mayor a 0 significa que si hay registros
-    if($resultado > 0){
-    //listando  todos los registros encontrados en un bucle while
-    //que liste la cantidad de filas que extrae el query
-        while($data = mysqli_fetch_array($query_lista_formulario)){
-?>  
+
 <tbody>
     <tr>
-        <td><?php echo $data["idwalls"]; ?></td>
-        <td><?php echo $data["proyecto"]; ?></td>
-        <td><a href="../formularios/mantenimiento_4walls.php" class="font-4walls"><?php echo "S/"." ".$data["c_mensual"]; ?></a></td>
-        <td><a href="../formularios/mantenimiento_nexsus.php" class="font-nexsus"><?php echo "S/"." ".$data["c_nexsus"]; ?></a></td>
-        <td><a href="../formularios/mantenimiento_hp.php" class="font-hp"><?php echo "S/"." ".$data["c_hp"]; ?></a></td>
-        <td><?php echo "$/"." ".$data["total_dolar"]; ?></td>
-        <td><?php echo "S/"." ".$data["total_soles"]; ?></td>
+        <td>backup</td>
+        <td>OB2CLOUD</td>
+        <td>XXADEDQA</td>
+        <td>100</td>
+        <td>01/01/2000</td>
+        <td></td>
     </tr>                                     
 </tbody>
-<?php
-    }
-}  
-?>
 </table>
     
 </div>                   

@@ -182,14 +182,9 @@ Tarifario TI</a>
 <span id="span-disco"><b>DISCO:</b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;200GB</span><br><br>
 <span id="span-servicio"><b>SERVICIO:</b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SILVER</span><br><br><br>
 
-    <!-- Combox de actividad  -->
-<label for="rol" class="label-estado" >SOW:</label>
-    <select id="cbo-sow">                              
-    <option selected = "true">6.2</option>  
-    <option selected = "true">6.3</option>
-    <option selected = "true">6.4</option> 
-    <option selected = "true">6.1</option>                                   
-    </select><br>
+<!-- buscador de sow -->
+<h6 id="sow-h6"><b>SOW:</b></h6><input class="sow-buscar" class="form-control form-control-sm ml-5 w-30" type="text" placeholder="6.4.1. sow - bronce" aria-label="Search">
+<i id="icono-search" class="fa fa-search fa-lg fa-fw" aria-hidden="false"></i>
 <input class="btn-guardar-servidor" type="button" value="Guardar" onclick="location.href='../reportes/resumen_servidores.php'">
 
 </form>
