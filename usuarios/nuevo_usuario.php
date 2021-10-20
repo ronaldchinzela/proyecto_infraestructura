@@ -59,7 +59,8 @@ if(!empty($_POST))
             
         //validando si los datos se an insertado en la bd 
         if($query_insert){
-            $alert='<p class="msg_save">Registro Satisfactorio</p>';
+            //imprimiendo alerta concatenando el usuario generado
+            $alert='<p class="msg_exitoso">Registro Satisfactorio:</p>'."<p id='p-user'>$user</p>";
         }else{
             $alert='<p class="msg_error">¡Ocurrió un error al crear el usuario!</p>';
     }

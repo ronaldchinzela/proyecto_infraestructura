@@ -7098,17 +7098,17 @@ form {
 /*estilos página nuevo_usuario*/
 .card-body-insert {
   flex: 1 1 auto;
-  height: 532px;
+  height: 560px;
   position: relative;
   padding: 1.25rem;
 }
 
 #form-generar-usuario{
   position: relative;
-  top: 175px;
+  top: 145px;
   border: 0px;
   width: auto;
-  height: 480px;
+  height: 420px;
   box-sizing: inherit;
   box-shadow: inherit;
 }
@@ -7164,8 +7164,11 @@ form {
 .msg_error{
   color: #da0707;
 }
-.msg_save{
-  color: #1fb900;
+.msg_exitoso{
+  color: #1da302;
+  position: relative;
+  right: 30px;
+  top: 25px;
 }
 .alert p{
   padding: 10px;
@@ -7177,6 +7180,14 @@ form {
   font-size: 2em;
   padding-left: 0px;
   white-space: nowrap;
+}
+
+#p-user{
+  right: -285px;
+  color: #1a7e04;
+  position: relative;
+  font-size: 2em;
+  top: -5px;
 }
 
 #input-nombre-nuevo-usuario {
