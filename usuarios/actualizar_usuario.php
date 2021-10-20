@@ -46,10 +46,12 @@ $estado = $_POST['estado'];
 $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE 
                                     (usuario = '$user' AND id_usuario != $idusuario) 
                                     OR (correo = '$correo' AND id_usuario != $idusuario) ");
-//el resultado lo devolverá por medio de un array y lo almacenará en la variable $result
+//si no existe el usuario y/o correo, el resultado lo devolverá por medio de un array 
+//y lo almacenará en la variable $result
 $resulta = mysqli_fetch_array($query);
 
-//validando la variable $result si es mayor a 0 significará que si hay registro
+//validando la variable $result para mostrar alerta en caso haya un usuario y/o correo 
+//si variable $resulta es mayor a 0 significará que si hay registro repetido
 if($resulta > 0){
     $alert='<p class="msg_error">¡El usuario o el correo ya existe!</p>';
 }else{
@@ -64,7 +66,6 @@ if($resulta > 0){
                                                 correo = '$correo', celular = '$cel', usuario = '$user',
                                                 password = '$pass', idrol  = '$rol', estado = '$estado' 
                                                 WHERE id_usuario  = $idusuario");
-
     }
                                                     
         //validando si los datos se an insertado en la bd 
@@ -86,7 +87,7 @@ header('Location: gestionar_usuario.php');
 //validando que el id_user enviado en la url, exista en la bd 
 //luego creo un query que traiga todos los campos seleccionado de un determinado usuario
 $iduser = $_GET['id_user'];
-$sql = mysqli_query($conexion, "SELECT u.id_usuario, u.nombres, u.password, u.apellidos, u.correo, u.usuario, u.celular, u.estado, (u.idrol)
+$sql = mysqli_query($conexion, "SELECT u.id_usuario, u.nombres, u.apellidos, u.correo, u.usuario, u.celular, u.estado, (u.idrol)
                             AS id_rol, (r.rol) AS rol FROM usuarios u INNER JOIN rol r ON u.idrol = r.id 
                             WHERE id_usuario = $iduser");
 //guardando la consulta en una variable que almacene el número de filas del query
@@ -106,7 +107,6 @@ while($data = mysqli_fetch_array($sql)){
     $correo = $data['correo'];
     $celular = $data['celular'];
     $usuario = $data['usuario'];
-    $password = $data['password'];
     $idrol = $data['id_rol'];
     $rol = $data['rol'];
     $estado = $data['estado'];
@@ -282,7 +282,7 @@ while($data = mysqli_fetch_array($sql)){
                 <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo" value="<?php echo $correo ; ?>"></span><br>
                 <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular" value="<?php echo $celular ; ?>"></span><br>
                 <span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario" value="<?php echo $usuario ; ?>"></span><br>
-                <span id="span-password">Password: <input type="password" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña" value="<?php echo $password ; ?>"></span><br>
+                <span id="span-password">Password: <input type="password" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"></span><br>
                 <!-- Combobox -->
                 <label for="rol" class="label-rol">Rol:</label>
                 <!-- creando query para traer los roles de la bd-->

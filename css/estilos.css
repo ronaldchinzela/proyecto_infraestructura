@@ -7096,6 +7096,23 @@ form {
 }
 
 /*estilos página nuevo_usuario*/
+.card-body-insert {
+  flex: 1 1 auto;
+  height: 532px;
+  position: relative;
+  padding: 1.25rem;
+}
+
+#form-generar-usuario{
+  position: relative;
+  top: 175px;
+  border: 0px;
+  width: auto;
+  height: 480px;
+  box-sizing: inherit;
+  box-shadow: inherit;
+}
+
 #b-nuevo-usuario{
   color: #000;
   transform: translate(-50%, -50%);
@@ -7108,7 +7125,7 @@ form {
 
 .btn-generar-usuario{
   box-sizing: border-box;
-  top: 490px;
+  top: 420px;
   position: absolute;
   left: 420px;
   width: 120px;
@@ -7137,16 +7154,6 @@ form {
   background-color: #c1cdec;
 }
 
-#form-generar-usuario{
-  position: relative;
-  top: 225px;
-  width: auto;
-  height: 550px;
-  box-sizing: inherit;
-  box-shadow: inherit;
-}
-
-/* estilos del alert de registro de usuario */
 .alert{
   width: 100%;
   background: #fff;
@@ -7171,7 +7178,6 @@ form {
   padding-left: 0px;
   white-space: nowrap;
 }
-/*-----------------------------*/
 
 #input-nombre-nuevo-usuario {
   margin: -4px;

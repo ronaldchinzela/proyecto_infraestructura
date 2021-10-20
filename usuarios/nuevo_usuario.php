@@ -28,7 +28,7 @@ if(!empty($_POST))
 {   
     //si todos los campos del formulairo están vacios
     $alert='';
-    if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
+    if(empty($_POST['nombres']) || empty($_POST['apellidos']) || empty($_POST['correo']) || empty($_POST['celular']) || empty($_POST['password']) || empty($_POST['rol']) || empty($_POST['estado']))
     {
         //se mostrará la siguiente alerta
         $alert='<p class="msg_error">¡Completar todos los campos!</p>'; 
@@ -37,7 +37,9 @@ if(!empty($_POST))
         $apellido = $_POST['apellidos'];
         $correo = $_POST['correo'];
         $cel = $_POST['celular'];
-        $user = $_POST['usuario'];
+        //concatenando la primera letra del nombre + el primer apellido
+        //usando la función explode para convertir los apéllidos en un array
+        $user = strtolower($nombre[0] . explode(" ", $apellido)[0]);
         $pass = md5($_POST['password']);
         $rol = $_POST['rol'];
         $estado = $_POST['estado'];
@@ -57,7 +59,7 @@ if(!empty($_POST))
             
         //validando si los datos se an insertado en la bd 
         if($query_insert){
-            $alert='<p class="msg_save">¡Usuario registrado correctamente!</p>';
+            $alert='<p class="msg_save">Registro Satisfactorio</p>';
         }else{
             $alert='<p class="msg_error">¡Ocurrió un error al crear el usuario!</p>';
     }
@@ -214,7 +216,7 @@ Tarifario TI</a>
 
 <div class="card mb-10">
 <div class="card-header-gestionar-usuario"></i><b id="b-nuevo-usuario">Nuevo usuario</b></div>
-<div class="card-body">
+<div class="card-body-insert">
 
 <!-- Formulario -->
 
@@ -226,7 +228,6 @@ Tarifario TI</a>
 <span id="span-apellido">Apellidos: <input type="text" name="apellidos" id="input-apellido-nuevo-usuario" placeholder="Ingrese los apellidos"></span><br>
 <span id="span-correo">Correo: <input type="email" name="correo" id="input-correo-nuevo-usuario" placeholder="Ingrese el correo"></span><br>
 <span id="span-celular">Celular: <input type="text" name="celular" id="input-celular-nuevo-usuario" placeholder="Ingrese número de celular"></span><br>
-<span id="span-password">Usuario: <input type="text" name="usuario" id="input-password-nuevo-usuario" placeholder="Escriba el usuario"></span><br>
 <span id="span-password">Password: <input type="password" name="password" id="input-password-nuevo-usuario" placeholder="Escriba una contraseña"></span><br>
 <!-- Combox de rol extrayendo data de la bd  -->
 <label for="rol" class="label-rol">Rol:</label>
