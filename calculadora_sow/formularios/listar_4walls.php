@@ -35,7 +35,7 @@ $idrol = $_SESSION['idrol'];
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 <!-- Barra de navegación-->   
-<a class="navbar-brand" href="../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+<a class="navbar-brand" href="../../pagina_principal/home.php">SGTRT</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
 
     <!-- menú de la sesión -->  
 <ul class="navbar-nav ml-auto mr-0 mr-md-0 my-2 my-md-0">
@@ -166,19 +166,28 @@ $idrol = $_SESSION['idrol'];
 <div class="card-header-listar"></i><b id="listar-b">Costo Mantenimiento</b></div>
 <div class="card-body-listar">
 
-<!-- Fecha inicio-->
-<h6 id="listar-h6-fecha">Fecha Inicio:</h6><input id="listar-fecha" type="date">
+<br><br>
+<!-- Combox de actividad  -->
+<select class="cbo-año">                            
+    <option>Año</option>  
+    <option>2021</option>
+    <option>2020</option> 
+    <option>2019</option>
+    <option>2018</option>  
+    <option>2017</option>                                     
+</select><br>
 
-<!-- Fecha fin-->
-<h6 id="listar-h6-fecha-fin">Fecha Fin:</h6><input id="listar-fecha-fin" type="date">
-
-    <br><br>
+<select class="cbo-mes">                              
+    <option>Mes</option>  
+    <option>Junio</option>
+    <option>Julio</option> 
+    <option>Agosto</option>  
+    <option>Setiembre</option>  
+    <option>Octubre</option>                                   
+</select><br>
 
 <!-- botón consultar-->
 <input class="boton-listar-consultar" type="button" value="consultar" onclick="location.href='../../calculadora_sow/formularios/listar_4walls.php'">
-<!-- botón registrar-->
-<input class="boton-listar-registrar" type="button" value="Registrar" onclick="location.href='../../calculadora_sow/formularios/formulario.php'">
-
 
 <!-- Tablas -->
 <div class="table-responsive-listar">
@@ -186,7 +195,6 @@ $idrol = $_SESSION['idrol'];
 <br><br>    
 <thead>
     <tr>
-        <th class="th01">Mes/año</th>
         <th class="th02">ALP</th>
         <th class="th03">Proyecto</th>
         <th class="th04">Costo Mensual 4Walls</th>
@@ -214,7 +222,6 @@ $idrol = $_SESSION['idrol'];
 ?>  
 <tbody>
     <tr>
-        <td><?php echo $data["mes"]; ?></td>
         <td><?php echo $data["idwalls"]; ?></td>
         <td><?php echo $data["proyecto"]; ?></td>
         <td><?php echo $data["c_mensual"]; ?></td>
