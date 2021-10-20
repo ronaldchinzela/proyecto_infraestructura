@@ -199,7 +199,7 @@
             <td>UNICON</td>
             <td>unmonrb103</td>
             <td>6.1</td>
-            <td> <a href="../reportes/resumen_servidores.php">Ver Detalle</a></td>
+            <td> <a href="../reportes/detalle_servidor.php">Ver Detalle</a></td>
         </tr>
         
     </tbody>
