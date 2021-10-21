@@ -7055,42 +7055,78 @@ form {
   border-radius: 0px;
   border: 1px solid #000;
 }
+/* estilos tarifario */
+.card-body-tarifario{
+  flex: 1 1 auto;
+  height: 510px;
+  position: relative;
+  padding: 1.25rem;
+}
+.table-responsive-tarifario {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -150px;
+  -webkit-overflow-scrolling: touch;
+}
+#b-tarifario{
+  color: #000;
+  transform: translateX(-50%) translateY(-50%);
+  position: relative;
+  font-size: 2em;
+  right: -15px;
+}
 
 #tarifario-h6-fecha{
-  position: absolute;
-  top: 95px;
-  right: 790px;
+  position: relative;
+  top: -1px;
+  right: -215px;
 }
 
 #tarifario-erika-fecha{
-  top: 95px;
-  position: absolute;
-  right: 580px;
+  top: -29px;
+  position: relative;
+  right: -290px;
+  width: 135px;
   border-radius: 0px;
   border: 1px solid #000;
 }
 
 #tarifario-h6-fecha-fin{
-  top: 95px;
-  position: absolute;
-  right: 440px;
+  top: -50px;
+  position: relative;
+  right: -525px;
 }
 
 #tarifario-erika-fecha-fin{
-  top: 95px;
-  position: absolute;
-  right: 230px;
+  top: -78px;
+  position: relative;
+  right: -580px;
+  width: 135px;
   border-radius: 0px;
   border: 1px solid #000;
 }
-
+#tarifario-tipo-cambio{
+  top: -32px;
+  position: relative;
+  right: -287px;
+}
+#input-tipo-cambio{
+  top: -60px;
+  position: relative;
+  right: -350px;
+  width: 110px;
+  border-radius: 0px;
+  border: 1px solid #000;
+}
 .consultar-tarifario{
   box-sizing: border-box;
-  top: 40px;
+  top: -115px;
   position: relative;
   transform: translateX(-50%) translateY(-50%);
   font-size: 1em;
-  left: 450px;
+  left: 560px;
   width: 100px;
   padding-left: 10px;
   padding-right: 8px;
@@ -7102,9 +7138,9 @@ form {
 
 .reporte-tarifario{
   box-sizing: border-box;
-  top: 165px;
+  top: 530px;
   position: absolute;
-  left: -10px;
+  left: 430px;
   width: 120px;
   padding-left: 10px;
   padding-right: 8px;
@@ -7114,18 +7150,26 @@ form {
   border: 1px solid #000;
 }
 
-#b-tarifario{
-  color: #000;
-  transform: translateX(-50%) translateY(-50%);
+/* estilos gym */
+.card-body-gym{
+  flex: 1 1 auto;
+  height: 380px;
   position: relative;
-  font-size: 2em;
+  padding: 1.25rem;
 }
-
+.table-responsive-gym{
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  top: -100px;
+  -webkit-overflow-scrolling: touch;
+}
 .reporte-gym{
   box-sizing: border-box;
-  top: 130px;
+  top: 310px;
   position: absolute;
-  left: -10px;
+  left: 450px;
   width: 120px;
   padding-left: 10px;
   padding-right: 8px;
@@ -7139,10 +7183,39 @@ form {
   color: #000;
   transform: translateX(-50%) translateY(-50%);
   position: relative;
-  right: -90px;
-  font-size: 2em;
+  right: -90px;  
+  font-size: 2em;      
+}
+#gym-h6-fecha{
+  position: relative;
+  top: 7px;
+  right: -232px;
 }
 
+#gym-erika-fecha{
+  top: -21px;
+  position: relative;
+  right: -305px;
+  width: 135px;
+  border-radius: 0px;
+  border: 1px solid #000;
+}
+
+#gym-h6-fecha-fin{
+  top: -42px;
+  position: relative;
+  right: -525px;
+}
+
+#gym-erika-fecha-fin{
+  top: -70px;
+  position: relative;
+  right: -580px;
+  width: 135px;
+  border-radius: 0px;
+  border: 1px solid #000;
+}
+/*************************************************/
 .registrar-sow{
   box-sizing: border-box;
   top: 110px;
@@ -7222,7 +7295,7 @@ form {
   border: 1px solid #000;
   font-family: "Font Awesome 5 Brands"; 
   font-weight: 500;
-  background-color: rgb(225, 228, 231);
+  background-color: rgb(231, 231, 231);
   text-indent: 17px;
 }
 #icono-search{

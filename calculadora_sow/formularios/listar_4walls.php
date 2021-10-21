@@ -118,7 +118,7 @@ $idrol = $_SESSION['idrol'];
         SOW</a>
         <a class="nav-link" href="../../calculadora_sow/formularios/listar_4walls.php">
         <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-        4walls</a>
+        Costo mantenimiento</a>
     </nav>
 </div>  							
     </div>

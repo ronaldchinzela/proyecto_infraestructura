@@ -54,177 +54,177 @@
 		</nav>
 <!-- menú lateral de navegación -->
 <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
+<div id="layoutSidenav_nav">
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+<div class="sb-sidenav-menu">
+<div class="nav">
 
-                             <!-- privilegios de los usuarios -->				
-						<?php if($idrol == 1) { ?>
-								
-							 <!-- menú reportes -->
-								<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
-                                Reportes
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                 </a>  
-                             <!-- Item de reportes -->  
-								<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../reportes/consumo_recursos.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
-                                    Consumo Recursos TI</a>
-                                <a class="nav-link" href="../reportes/tarifario.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                                    Tarifario TI</a>
-                                <a class="nav-link" href="../reportes/resumen_servidores.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                                    Resumen de Servidores</a>
-                                </nav>
-                            </div>
-                            <div class="dropdown-divider"></div>
+<!-- privilegios de los usuarios -->				
+<?php if($idrol == 1) { ?>
+        
+<!-- menú reportes -->
+<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+<div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
+Reportes
+<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>  
+<!-- Item de reportes -->  
+<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+    <nav class="sb-sidenav-menu-nested nav">
+<a class="nav-link" href="../reportes/consumo_recursos.php">
+<div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+    Consumo Recursos TI</a>
+<a class="nav-link" href="../reportes/tarifario.php">
+<div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+    Tarifario TI</a>
+<a class="nav-link" href="../reportes/resumen_servidores.php">
+<div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+    Resumen de Servidores</a>
+</nav>
+</div>
+<div class="dropdown-divider"></div>
 
-                            <!-- menú usuarios -->
-                            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                Usuarios
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <!-- Item de usuarios -->
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../usuarios/nuevo_usuario.php">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                                    Nuevo Usuario</a>
-                                    <a class="nav-link" href="../usuarios/gestionar_usuario.php">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                                    Gestionar Usuario</a>
-                                </nav>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                                            
-                            <!-- menú de mantenimiento --> 
-                            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
-                                <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
-                                Calculadora SOW
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <!-- Item de mantenimiento -->
-                            <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="../calculadora_sow/sow.php">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
-                                    SOW</a>
-                                    <a class="nav-link" href="../calculadora_sow/formularios/listar_4walls.php">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
-                                    4walls</a>
-                                </nav>
-                            </div>  							
-								</div>
+<!-- menú usuarios -->
+<a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+    Usuarios
+    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+</a>
+<!-- Item de usuarios -->
+<div class="collapse" id="collapsePages" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+    <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="../usuarios/nuevo_usuario.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+        Nuevo Usuario</a>
+        <a class="nav-link" href="../usuarios/gestionar_usuario.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+        Gestionar Usuario</a>
+    </nav>
+</div>
+<div class="dropdown-divider"></div>
+                
+    <!-- menú de mantenimiento --> 
+    <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+        <div class="sb-nav-link-icon"><i class="fa fa-wrench"></i></div>
+        Calculadora SOW
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+    </a>
+    <!-- Item de mantenimiento -->
+    <div class="collapse" id="collapseLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+        <nav class="sb-sidenav-menu-nested nav">
+            <a class="nav-link" href="../calculadora_sow/sow.php">
+            <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+            SOW</a>
+            <a class="nav-link" href="../calculadora_sow/formularios/listar_4walls.php">
+            <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>  
+            4walls</a>
+        </nav>
+    </div>  							
+        </div>
 
-                        <!-- cerrando llave del usuario en sesión --> 
-                        <?php } ?>
+<!-- cerrando llave del usuario en sesión --> 
+<?php } ?>
 
-                            <!-- página del Analista--> 
-                        <?php if($idrol == 2) { ?>
-                            			
-						 <!-- menú reportes -->                      
-                        <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseLayou" aria-expanded="false" aria-controls="collapseLayou">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
-                                Reportes
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                 </a>  
-                             <!-- Item de reportes --> 
-							<div class="collapse" id="collapseLayou" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../reportes/consumo_recursos.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
-                                    Consumo Recursos TI</a>
-                                <a class="nav-link" href="../reportes/tarifario.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
-                                    Tarifario TI</a>
-                                     
-                              </div> 
-                         
-                              <?php } ?>
+    <!-- página del Analista--> 
+<?php if($idrol == 2) { ?>
+                
+    <!-- menú reportes -->                      
+<a class="nav-link" href="" data-toggle="collapse" data-target="#collapseLayou" aria-expanded="false" aria-controls="collapseLayou">
+        <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
+        Reportes
+        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>  
+        <!-- Item de reportes --> 
+    <div class="collapse" id="collapseLayou" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+            <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="../reportes/consumo_recursos.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+            Consumo Recursos TI</a>
+        <a class="nav-link" href="../reportes/tarifario.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>    
+            Tarifario TI</a>
+                
+        </div> 
+    
+<?php } ?>
 
 
-                            <div>
-				                        </nav>
-			                </div>
+<div>
+        </nav>
+</div>
 
-                            <div id="layoutSidenav_content">
-                            <main>
-                                <div class="container-fluid">
-                    
-                            <div class="row">                
-                            <br>        
-                            </div>
+<div id="layoutSidenav_content">
+<main>
+<div class="container-fluid">
 
-                          <div class="card mb-4">
-                          <div class="card-header"></i><b id="b-gym">GYM</b></div>
-                            <div class="card-body">
-                       
-                            <!-- Fecha inicio-->
-                            <h6 id="tarifario-h6-fecha">Fecha Inicio:</h6><input id="tarifario-erika-fecha" type="date">
-                            
-                            <!-- Fecha fin-->
-                            <h6 id="tarifario-h6-fecha-fin">Fecha Fin:</h6><input id="tarifario-erika-fecha-fin" type="date">
+<div class="row">                
+<br>        
+</div>
 
-                                <br>
+<div class="card mb-4">
+<div class="card-header"></i><b id="b-gym">GYM</b></div>
+<div class="card-body-gym">
 
-                            <!-- Tablas -->
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <br><br>    
-                                    <thead>
-                                            <tr>
-                                                <th>Servidor</th>
-                                                <th>CPU</th>
-                                                <th>Memoria</th>
-                                                <th>Disco</th>                                            
-											</tr>
-										</thead>     
-                                        <tbody>
-                                            <tr>
-                                                <td>SATIPO</td>
-                                                <td>S/.100.00</td>
-                                                <td>S/.20</td>
-                                                <td>S/.20</td>
-											</tr>                                           
-										</tbody>
-                                        
-									</table>
-                                    
-                                   
-								</div>
-                                
-							</div>
-                            <input class="reporte-gym" type="button" value="Generar reporte" onclick="location.href='../reportes/gym.php'">
-						</div>
-                        
-					</div>
-                    
-				</main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Canvia</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-							</div>
-						</div>
-					</div>
-				</footer>
-			</div>
-		</div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
-        <script src="../js/scripts.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-	</body>
+<!-- Fecha inicio-->
+<h6 id="gym-h6-fecha">Fecha Inicio:</h6><input id="gym-erika-fecha" type="date">
+
+<!-- Fecha fin-->
+<h6 id="gym-h6-fecha-fin">Fecha Fin:</h6><input id="gym-erika-fecha-fin" type="date">
+
+<br>
+
+<!-- Tablas -->
+<div class="table-responsive-gym">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <br><br>    
+    <thead>
+            <tr>
+                <th>Servidor</th>
+                <th>CPU</th>
+                <th>Memoria</th>
+                <th>Disco</th>                                            
+            </tr>
+        </thead>     
+        <tbody>
+            <tr>
+                <td>SATIPO</td>
+                <td>S/.100.00</td>
+                <td>S/.20</td>
+                <td>S/.20</td>
+            </tr>                                           
+        </tbody>
+        
+    </table>
+    
+    
+</div>
+
+</div>
+<input class="reporte-gym" type="button" value="Generar reporte" onclick="location.href='../reportes/gym.php'">
+</div>
+
+</div>
+
+</main>
+<footer class="py-4 bg-light mt-auto">
+<div class="container-fluid">
+<div class="d-flex align-items-center justify-content-between small">
+    <div class="text-muted">Copyright &copy; Canvia</div>
+    <div>
+        <a href="#">Privacy Policy</a>
+    </div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> 
+<script src="../js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+</body>
 </html>
